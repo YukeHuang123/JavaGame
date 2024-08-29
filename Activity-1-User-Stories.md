@@ -65,5 +65,8 @@
 * As a developer, I want to be able to implement the weapon system so that the player can use different weapons.
 * As a developer, I want to be able to implement the health system for the player so that they can know how close they are to dying.
 * As a developer, I want to be able to implement the damage system so that the player can know how effective their attacks are.
+* As a developer, I want to be able to implement the resurrection function, that players don't need to restart from the game from the intialized stage.
+* As a developer, I want to be able to implement the bonus function, that players will get some suprise that can improve the experience of the game.
+* As a developer, I want add the shop system that developer can buy some weapon or items that increase health and mana.
 
 #### Estimated Time: 5 days
