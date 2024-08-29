@@ -35,3 +35,17 @@
 * As a developer, I want to be able to implement the inventory system so that the player can interact with it.
 * As a developer, I want to be able to implement the item system so that the player can pick up and use items.
 * As a developer, I want to be able to implement the item drop system so that the player can drop items.
+
+## Additional Features
+
+### Sneaking
+
+#### User Stories
+* As a player, I want to be able to sneak so that I can avoid enemies by being quiet.
+* As a player, I want to be able to see the enemies' vision so that I can avoid being seen.
+
+* As a developer, I want to be able to implement the sneaking system so that the player can avoid enemies.
+* As a developer, I want to be able to implement the enemies' vision system so that the player can avoid being seen.
+* As a developer, I want to be able to implement the enemies' hearing system so that the player can avoid being heard.
+
+#### Estimated Time: 2 days
