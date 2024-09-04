@@ -130,3 +130,36 @@
         - Settings automatically load the next time the game is started.
     - **Estimated Time:** 5 hours
     - **Priority:** Medium
+
+## resurrection
+1. ***As a player, I want to resurrect from the place where the role died.***
+    - **Acceptance Criteria:**
+        - Players will continue the game immediately from where the role dies if the role has lives.
+    - **Estimated Time:** 5 hours
+    - **Priority:** Medium
+
+2. ***As a player, I want to store the money and inventory and they will not clear after dying.***
+    - **Acceptance Criteria:**
+        - Players will continue to use the money and inventory even it resurrect.
+    - **Estimated Time:** 5 hours
+    - **Priority:** Medium
+3. ***As a player, I want to choose where can I resurrect before the progress of the game and can go back to the previous game level.***
+    - **Acceptance Criteria:**
+        - Players can choose where to restart the game from where they have passed.
+    - **Estimated Time:** 8 hours
+    - **Priority:** Medium
+4. ***As a developer, I want to set a rule that player have several lives that roles can resurrect at current place and the money and inventory will keep.***
+    - **Acceptance Criteria:**
+        - Players can choose where to restart the game from where they have passed.
+    - **Estimated Time:** 8 hours
+    - **Priority:** Medium
+5. ***As a developer, I want to set a ruel that player will restart from the inital stage of this level of game if its lives have all used***
+    - **Acceptance Criteria:**
+        - If the role has no lives, it will recurrect from the initial stage and the money and inventory will be all cleared.
+    - **Estimated Time:** 8 hours
+    - **Priority:** Medium
+6. ***As a developer, I want to let the player choose where to resurrect and let player choose whether they want clear the inventory.***
+    - **Acceptance Criteria:**
+        - if the role has lives, the game can give the player options whteher continue (resurrect at same place) or restart(rresurrect from the initial stage). Also play can choose whether clear money and inventory or not.
+    - **Estimated Time:** 8 hours
+    - **Priority:** Low
