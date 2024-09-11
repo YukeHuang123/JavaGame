@@ -1,3 +1,5 @@
+image: gradle:8.10.1-jdk17
+
 stages:
   - build
   - test
@@ -15,6 +17,8 @@ cache:
 
 build:
   stage: build
+  tags:
+    - comp2100
   script:
     - echo "Building the application"
     - gradle assemble
@@ -28,6 +32,8 @@ build:
 
 test:
   stage: test
+  tags:
+    - comp2100
   script:
     - echo "Testing the application"
     - gradle test
