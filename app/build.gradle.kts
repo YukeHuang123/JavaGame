@@ -28,13 +28,14 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
+        // we are using Java 17
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "au.edu.anu.comp6120.thu16_a3_d.App"
 }
 
 tasks.named<Test>("test") {
