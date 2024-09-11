@@ -1,5 +1,6 @@
 # COMP6120-Thu16-A3-D
 
+Project Status: ![CI](https://gitlab.cecs.anu.edu.au/u7837228/comp6120-thu16-a3-d/actions/workflows/ci.yml/badge.svg)
 
 
 ## Getting started
