@@ -3,12 +3,24 @@
  */
 package au.edu.anu.comp6120.thu16_a3_d;
 
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println("Start The Game");
+        String inputString;
+        Scanner scanner = new Scanner(System.in);
+        TerminalOut terminalOut = new TerminalOut();
+        while(true) {
+            inputString = scanner.nextLine();
+            terminalOut.inputCommand(inputString);
+            if(terminalOut.needExit()){
+                break;
+            }
+        }
     }
 }
