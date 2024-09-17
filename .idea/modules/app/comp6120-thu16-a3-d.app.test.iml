@@ -5,12 +5,13 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../app/src/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/resources" type="java-test-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="temurin-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="comp6120-thu16-a3-d.app.main" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:33.2.1-jre" level="project" />
-    <orderEntry type="library" name="Gradle: org.json:json:20210307" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.10" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter:5.10.3" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:failureaccess:1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />

@@ -23,7 +23,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
-    implementation("org.json:json:20210307")
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.10")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
