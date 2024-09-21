@@ -3,24 +3,23 @@
  */
 package au.edu.anu.comp6120.thu16_a3_d;
 
-import java.util.Scanner;
+import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
+import java.io.IOException;
 
 public class App {
+
+
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
-        System.out.println("Start The Game");
-        String inputString;
-        Scanner scanner = new Scanner(System.in);
-        TerminalOut terminalOut = new TerminalOut();
-        while(true) {
-            inputString = scanner.nextLine();
-            terminalOut.inputCommand(inputString);
-            if(terminalOut.needExit()){
-                break;
-            }
+    public static void main(String[] args) throws IOException {
+
+        GameState gameState = new GameState();
+
+        while (true) {
+            // wait for user input
+            gameState.display();
         }
     }
 }

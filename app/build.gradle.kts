@@ -44,3 +44,13 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.named<Jar>("jar") {
+    // Ensure the JAR is executable.
+    manifest {
+        attributes("Main-Class" to application.mainClass)
+    }
+    // Include the dependencies in the JAR
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
