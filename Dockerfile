@@ -18,4 +18,4 @@ RUN ./gradlew dependencies
 RUN ./gradlew build
 
 #run the application
-CMD ["./gradlew", "run"]
+CMD ["java", "-jar","build/libs/app.jar"]
