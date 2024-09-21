@@ -1,5 +1,5 @@
 # set the the version of java jdk
-FROM openjdk:17
+FROM gradle:8.10.1-jdk17
 LABEL authors="thu16_a3_d"
 
 # set the working directory inside the container
