@@ -3,12 +3,23 @@
  */
 package au.edu.anu.comp6120.thu16_a3_d;
 
+import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
+import java.io.IOException;
+
 public class App {
+
+
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static void main(String[] args) throws IOException {
+
+        GameState gameState = new GameState();
+
+        while (true) {
+            // wait for user input
+            gameState.display();
+        }
     }
 }
