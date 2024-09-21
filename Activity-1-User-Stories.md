@@ -11,14 +11,9 @@
 2. **As a player, I want to run so that I can move faster.**
    - **Acceptance Criteria:**
       - Player can hold a designated key to sprint.
-   - **Estimated Time:** 5 hours
+   - **Estimated Time:** 3 hours
    - **Priority:** Medium
 
-3. **As a developer, I want to implement the movement and running systems to enable player navigation.**
-   - **Acceptance Criteria:**
-      - Movement and sprinting are responsive and functional.
-   - **Estimated Time:** 6 hours
-   - **Priority:** High
 
 ## Maze/Map/Level
 
@@ -34,11 +29,6 @@
    - **Estimated Time:** 10 hours
    - **Priority:** Medium
 
-3. **As a developer, I want to implement the maze and map systems to facilitate player navigation and exploration.**
-   - **Acceptance Criteria:**
-      - Maze is navigable and the map displays correctly.
-   - **Estimated Time:** 10 hours
-   - **Priority:** High
 
 ## Enemies
 
@@ -60,11 +50,6 @@
    - **Estimated Time:** 5 hours
    - **Priority:** Medium
 
-4. **As a developer, I want to implement enemy mechanics and health systems to enhance player interaction.**
-   - **Acceptance Criteria:**
-      - Enemies have basic AI and health tracking.
-   - **Estimated Time:** 8 hours
-   - **Priority:** High
 
 ## Inventory System
 
@@ -86,11 +71,6 @@
     - **Estimated Time:** 6 hours
     - **Priority:** Medium
 
-4. **As a developer, I want to implement the inventory and item systems to facilitate player interactions.**
-   - **Acceptance Criteria:**
-      - Players can manage their inventory effectively.
-   - **Estimated Time:** 7 hours
-   - **Priority:** High
 
 ## Loot System
 
@@ -106,11 +86,6 @@
    - **Estimated Time:** 5 hours
    - **Priority:** Medium
 
-3. **As a developer, I want to implement the loot generation system to provide players with a variety of items.**
-   - **Acceptance Criteria:**
-      - Loot is generated with different rarities.
-   - **Estimated Time:** 1 day
-   - **Priority:** Medium
 
 ## Combat System
 
@@ -132,11 +107,6 @@
    - **Estimated Time:** 6 hours
    - **Priority:** High
 
-4. **As a developer, I want to implement the combat mechanics and health system to facilitate player engagement.**
-   - **Acceptance Criteria:**
-      - Combat mechanics are smooth, and health/damage are tracked accurately.
-   - **Estimated Time:** 8 hours
-   - **Priority:** High
 
 ## Resurrection System
 
@@ -158,11 +128,6 @@
    - **Estimated Time:** 8 hours
    - **Priority:** Medium
 
-4. **As a developer, I want to implement rules for lives and resurrection mechanics.**
-   - **Acceptance Criteria:**
-      - Players can choose where to restart and retain items if they have lives left.
-   - **Estimated Time:** 8 hours
-   - **Priority:** Medium
 
 ## Customization System
 
@@ -178,9 +143,3 @@
       - Custom settings load automatically when the game starts.
    - **Estimated Time:** 6 hours
    - **Priority:** Medium
-
-3. **As a developer, I want to implement the customization system to allow players to personalize their characters.**
-   - **Acceptance Criteria:**
-      - Players can change and save their customization settings effectively.
-   - **Estimated Time:** 8 hours
-   - **Priority:** High

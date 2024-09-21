@@ -36,10 +36,10 @@
 
 **Action Items**
 
-| Task                                                   | Assigned To                     | Due Date   |
-|--------------------------------------------------------|---------------------------------|------------|
-| [Improve user stories](../Activity-1-User-Stories.md)  | He Wang,  Wenjing Qi, Shun Liu  | 2024-08-30 |
-| Write meeting minutes for the first meeting            | Yuke Huang                      | 2024-08-30 |
-| Practice using GitLab to create and close issues       | All Members                     | 2024-08-31 |
+| Task                                         | Assigned To   | Due Date   |
+|----------------------------------------------|---------------|------------|
+| [Improve user stories](D:\6120_A3\comp6120-thu16-a3-d\Activity-1-User-Stories.md)                   | He Wang,  Wenjing Qi, Shun Liu  | 2024-08-30 |
+| Write meeting minutes for the first meeting       | Yuke Huang | 2024-08-30 |
+| Practice using GitLab to create and close issues | All Members | 2024-08-31 |
 
 
