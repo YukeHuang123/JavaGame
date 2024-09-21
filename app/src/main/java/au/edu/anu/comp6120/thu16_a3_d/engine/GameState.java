@@ -2,6 +2,7 @@ package au.edu.anu.comp6120.thu16_a3_d.engine;
 
 import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.Entity;
+import au.edu.anu.comp6120.thu16_a3_d.engine.level.Map;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class GameState implements ISerializable, IDisplayable {
     }
 
     private final List<Entity> entities;
+    private final Map map = new Map();
 
     public GameState() {
         INSTANCE = this;
@@ -54,6 +56,6 @@ public class GameState implements ISerializable, IDisplayable {
 
     @Override
     public void display() {
-
+        this.map.display();
     }
 }

@@ -19,6 +19,6 @@ public class WallGrid implements Grid{
 
     @Override
     public void display() {
-        System.out.print("█");
+        System.out.print("X");
     }
 }

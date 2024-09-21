@@ -6,20 +6,55 @@ package au.edu.anu.comp6120.thu16_a3_d;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import java.io.IOException;
 
-public class App {
+import java.io.IOException;
+import java.io.Console;
 
+public class App {
 
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) throws IOException {
-
         GameState gameState = new GameState();
 
+        System.out.println("Use W/A/S/D to move, Q to quit");
+
         while (true) {
-            // wait for user input
             gameState.display();
+
+            int input = System.in.read();
+
+            // Consume any additional characters (like newline)
+            while (System.in.available() > 0) {
+                System.in.read();
+            }
+
+            if (input == 'q' || input == 'Q') {
+                System.out.println("Quitting the game. Goodbye!");
+                break;
+            }
+
+            processInput((char) input, gameState);
+        }
+    }
+
+    private static void processInput(char input, GameState gameState) {
+        switch (Character.toLowerCase(input)) {
+            case 'w':
+                System.out.println("Moving up");
+                break;
+            case 's':
+                System.out.println("Moving down");
+                break;
+            case 'a':
+                System.out.println("Moving left");
+                break;
+            case 'd':
+                System.out.println("Moving right");
+                break;
+            default:
+                // Ignore other inputs
         }
     }
 }

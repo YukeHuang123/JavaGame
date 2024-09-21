@@ -12,6 +12,11 @@ public class Map implements ISerializable, IDisplayable {
 
     public Map() {
         grids = new Grid[MAX_X][MAX_Y];
+        for (int i = 0; i < MAX_X; i++) {
+            for (int j = 0; j < MAX_Y; j++) {
+                grids[i][j] = new WallGrid();
+            }
+        }
     }
 
     @Override
@@ -26,6 +31,11 @@ public class Map implements ISerializable, IDisplayable {
 
     @Override
     public void display() {
-
+        for (Grid[] row : grids) {
+            for (Grid grid : row) {
+                grid.display();
+            }
+            System.out.println();
+        }
     }
 }
