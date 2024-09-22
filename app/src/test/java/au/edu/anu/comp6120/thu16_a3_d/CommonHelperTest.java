@@ -1,6 +1,6 @@
 package au.edu.anu.comp6120.thu16_a3_d;
 
-import au.edu.anu.comp6120.thu16_a3_d.utils.CommonHelper;
+import au.edu.anu.comp6120.thu16_a3_d.utils.Utils;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

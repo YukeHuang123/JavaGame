@@ -1,8 +1,9 @@
 package au.edu.anu.comp6120.thu16_a3_d.utils;
 
+
 import java.util.UUID;
 
-public class CommonHelper {
+public class Utils {
 
     public static boolean isValidUUID(String str){
         try {

@@ -23,6 +23,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.10")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -41,4 +43,14 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.named<Jar>("jar") {
+    // Ensure the JAR is executable.
+    manifest {
+        attributes("Main-Class" to application.mainClass)
+    }
+    // Include the dependencies in the JAR
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
