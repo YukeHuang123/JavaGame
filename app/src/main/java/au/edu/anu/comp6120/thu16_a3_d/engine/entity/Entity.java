@@ -1,21 +1,27 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 
+import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Direction;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
+import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * Entity class is the base class for all entities in the game
  */
-public class Entity {
+public class Entity implements ISerializable {
 
     private int health;
-    private final int maxHealth;
-    private final Location location;
+    private int maxHealth;
+    private Location location;
+    private EntityType type;
 
-    public Entity(int maxHealth, Location location) {
+    public Entity(int maxHealth, Location location, EntityType type) {
         this.maxHealth = maxHealth;
         this.health = this.maxHealth;
         this.location = location;
+        this.type = type;
     }
 
     public int getHealth() {
@@ -76,4 +82,29 @@ public class Entity {
 
     }
 
+
+    public EntityType getType() {
+        return type;
+    }
+
+    @Override
+    public String serialize() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("type", this.type.getName());
+        jsonObject.addProperty("location", this.getLocation().serialize());
+        jsonObject.addProperty("health", this.getHealth());
+        jsonObject.addProperty("max_health", this.maxHealth);
+        return DataManager.GSON.toJson(jsonObject);
+    }
+
+    @Override
+    public void deserialize(String data) {
+        JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
+        String typeName = jsonObject.get("type").getAsString();
+        this.type = EntityType.fromName(typeName);
+        this.location = new Location(0, 0);
+        this.location.deserialize(jsonObject.get("location").getAsString());
+        this.health = jsonObject.get("health").getAsInt();
+        this.maxHealth = jsonObject.get("max_health").getAsInt();    
+    }
 }
