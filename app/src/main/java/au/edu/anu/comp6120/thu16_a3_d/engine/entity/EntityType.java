@@ -23,4 +23,8 @@ public enum EntityType {
     public String getDisplayName() {
         return name().substring(0, 1).toUpperCase();
     }
+
+    public static EntityType fromName(String name) {
+        return EntityType.valueOf(name.toUpperCase());
+    }
 }

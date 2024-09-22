@@ -15,10 +15,22 @@ public class App {
         return "Hello World!";
     }
 
+    // ANSI color codes
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RESET = "\u001B[0m";
+
+    // Unicode box drawing characters
+    private static final String TOP_LEFT = "┌";
+    private static final String TOP_RIGHT = "┐";
+    private static final String BOTTOM_LEFT = "└";
+    private static final String BOTTOM_RIGHT = "┘";
+    private static final String HORIZONTAL = "─";
+    private static final String VERTICAL = "│";
+
     public static void main(String[] args) throws IOException {
         GameState gameState = new GameState();
 
-        System.out.println("Use W/A/S/D to move, Q to quit");
+        displayInstructions();
 
         while (true) {
             gameState.display();
@@ -37,6 +49,28 @@ public class App {
 
             processInput((char) input, gameState);
         }
+    }
+
+    private static void displayInstructions() {
+        String message = " Use W/A/S/D to move, Q to quit ";
+        int width = message.length() + 2; // Add 2 for left and right padding
+
+        // Top border
+        System.out.print(ANSI_GREEN + TOP_LEFT);
+        for (int i = 0; i < width; i++) {
+            System.out.print(HORIZONTAL);
+        }
+        System.out.println(TOP_RIGHT);
+
+        // Message
+        System.out.println(VERTICAL + " " + message + " " + VERTICAL);
+
+        // Bottom border
+        System.out.print(BOTTOM_LEFT);
+        for (int i = 0; i < width; i++) {
+            System.out.print(HORIZONTAL);
+        }
+        System.out.println(BOTTOM_RIGHT + ANSI_RESET);
     }
 
     private static void processInput(char input, GameState gameState) {
