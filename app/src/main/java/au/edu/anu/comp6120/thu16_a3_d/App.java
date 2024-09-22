@@ -21,12 +21,12 @@ public class App {
     private static final String ANSI_RESET = "\u001B[0m";
 
     // Unicode box drawing characters
-    private static final String TOP_LEFT = "┌";
-    private static final String TOP_RIGHT = "┐";
-    private static final String BOTTOM_LEFT = "└";
-    private static final String BOTTOM_RIGHT = "┘";
-    private static final String HORIZONTAL = "─";
-    private static final String VERTICAL = "│";
+    private static final String TOP_LEFT = "+";
+    private static final String TOP_RIGHT = "+";
+    private static final String BOTTOM_LEFT = "+";
+    private static final String BOTTOM_RIGHT = "+";
+    private static final String HORIZONTAL = "-";
+    private static final String VERTICAL = "|";
 
     public static void main(String[] args) throws IOException {
         GameState gameState = new GameState();

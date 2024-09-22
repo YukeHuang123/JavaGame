@@ -6,7 +6,7 @@
     <content url="file://$MODULE_DIR$/../../../app/src/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/java" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="temurin-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="comp6120-thu16-a3-d.app.main" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:33.2.1-jre" level="project" />

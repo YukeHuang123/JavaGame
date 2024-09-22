@@ -107,12 +107,12 @@ public class GameMap implements ISerializable, IDisplayable {
         final String ANSI_RESET = "\u001B[0m";
 
         // Unicode box drawing characters
-        final String TOP_LEFT = "┌";
-        final String TOP_RIGHT = "┐";
-        final String BOTTOM_LEFT = "└";
-        final String BOTTOM_RIGHT = "┘";
-        final String HORIZONTAL = "─";
-        final String VERTICAL = "│";
+        final String TOP_LEFT = "+";
+        final String TOP_RIGHT = "+";
+        final String BOTTOM_LEFT = "+";
+        final String BOTTOM_RIGHT = "+";
+        final String HORIZONTAL = "-";
+        final String VERTICAL = "|";
 
         // Top border
         System.out.print(ANSI_YELLOW + TOP_LEFT);
