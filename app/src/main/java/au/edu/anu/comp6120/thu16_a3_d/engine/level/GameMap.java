@@ -1,7 +1,12 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine.level;
 
+import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class GameMap implements ISerializable, IDisplayable {
 
@@ -52,12 +57,47 @@ public class GameMap implements ISerializable, IDisplayable {
 
     @Override
     public String serialize() {
-        return "";
+        JsonObject jsonObject = new JsonObject();
+        JsonArray gridsArray = new JsonArray();
+
+        for (int x = 0; x < WIDTH; x++) {
+            JsonArray column = new JsonArray();
+            for (int y = 0; y < HEIGHT; y++) {
+                JsonObject gridObject = new JsonObject();
+                gridObject.addProperty("type", grids[x][y].getClass().getSimpleName());
+                column.add(gridObject);
+            }
+            gridsArray.add(column);
+        }
+
+        jsonObject.add("grids", gridsArray);
+        return DataManager.GSON.toJson(jsonObject);
     }
 
     @Override
     public void deserialize(String data) {
+        JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
+        JsonArray gridsArray = jsonObject.getAsJsonArray("grids");
 
+        for (int x = 0; x < WIDTH; x++) {
+            JsonArray column = gridsArray.get(x).getAsJsonArray();
+            for (int y = 0; y < HEIGHT; y++) {
+                JsonObject gridObject = column.get(y).getAsJsonObject();
+                String gridType = gridObject.get("type").getAsString();
+                
+                switch (gridType) {
+                    case "EmptyGrid":
+                        grids[x][y] = new EmptyGrid();
+                        break;
+                    case "WallGrid":
+                        grids[x][y] = new WallGrid();
+                        break;
+                    // Add cases for other grid types if needed
+                    default:
+                        throw new IllegalArgumentException("Unknown grid type: " + gridType);
+                }
+            }
+        }
     }
 
     @Override

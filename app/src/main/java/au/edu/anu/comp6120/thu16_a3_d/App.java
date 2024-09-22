@@ -3,6 +3,7 @@
  */
 package au.edu.anu.comp6120.thu16_a3_d;
 
+import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import java.io.IOException;
 
@@ -44,6 +45,7 @@ public class App {
 
             if (input == 'q' || input == 'Q') {
                 System.out.println("Quitting the game. Goodbye!");
+                DataManager.getInstance().save(gameState);
                 break;
             }
 
@@ -77,15 +79,19 @@ public class App {
         switch (Character.toLowerCase(input)) {
             case 'w':
                 System.out.println("Moving up");
+                // gameState.movePlayer(0, -1);
                 break;
             case 's':
                 System.out.println("Moving down");
+                // gameState.movePlayer(0, 1);
                 break;
             case 'a':
                 System.out.println("Moving left");
+                // gameState.movePlayer(-1, 0);
                 break;
             case 'd':
                 System.out.println("Moving right");
+                // gameState.movePlayer(1, 0);
                 break;
             default:
                 // Ignore other inputs
