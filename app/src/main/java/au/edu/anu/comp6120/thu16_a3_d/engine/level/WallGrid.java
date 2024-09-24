@@ -24,7 +24,7 @@ public class WallGrid implements Grid{
         // ANSI escape code to reset color
         String ANSI_RESET = "\u001B[0m";
         // Unicode character for a solid block
-        String WALL_CHAR = "■";
+        String WALL_CHAR = "#";
         
         System.out.print(ANSI_BLUE + WALL_CHAR + ANSI_RESET);
     }
