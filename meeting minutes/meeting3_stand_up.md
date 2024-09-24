@@ -1,4 +1,4 @@
-### Team Meeting 3 - Break 2 - 2024-09-21
+### Team Meeting 3 - week 7 - 2024-09-20
 
 **Agenda Items**
 
