@@ -10,6 +10,6 @@ public class Player extends Entity {
     private static final int MAX_HEALTH = 100;
 
     public Player(Location location) {
-        super(MAX_HEALTH, location);
+        super(MAX_HEALTH, location, EntityType.PLAYER);
     }
 }
