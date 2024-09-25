@@ -11,6 +11,11 @@ public class Location implements ISerializable {
     private int locationX;
     private int locationY;
 
+    public Location() {
+        this.locationX = -1;
+        this.locationY = -1;
+    }
+
     public Location(int locationX, int locationY) {
         this.locationX = locationX;
         this.locationY = locationY;
@@ -32,6 +37,10 @@ public class Location implements ISerializable {
         this.locationY = locationY;
     }
 
+    public boolean hasSetLocation(){
+        return locationX != -1 && locationY != -1;
+    }
+
     @Override
     public String serialize() {
         return DataManager.GSON.toJson(this);
@@ -42,5 +51,10 @@ public class Location implements ISerializable {
         Location location = DataManager.GSON.fromJson(data, Location.class);
         this.locationX = location.locationX;
         this.locationY = location.locationY;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + locationX +","+ locationY +']';
     }
 }

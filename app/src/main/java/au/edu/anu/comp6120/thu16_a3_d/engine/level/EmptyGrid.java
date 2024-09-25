@@ -21,4 +21,9 @@ public class EmptyGrid implements Grid{
     public void display() {
         System.out.print(" ");
     }
+
+    @Override
+    public String toString() {
+        return " ";
+    }
 }
