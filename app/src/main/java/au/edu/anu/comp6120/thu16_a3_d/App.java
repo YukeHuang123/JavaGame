@@ -58,6 +58,7 @@ public class App {
 
             if(gameState.getStateType() == GameStateType.LOSS) {
                 System.out.println(ANSI_RED + "You lost!" + ANSI_RESET);
+                gameState.display();
                 showLoss();
                 break;
             }
