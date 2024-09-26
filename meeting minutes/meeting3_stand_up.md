@@ -2,12 +2,12 @@
 
 **Agenda Items**
 
-| Number | Item Name                                         |
-|--------|---------------------------------------------------|
-| 1      | Progress Updates                                   |
-| 2      | Discussion of Remaining Tasks                     |
-| 3      | Task Reallocation and Collaboration               |
-| 4      | Planning for the Upcoming Week                    |
+| Number | Item Name                           |
+|--------|-------------------------------------|
+| 1      | Progress Updates                    |
+| 2      | Discussion of Remaining Tasks       |
+| 3      | Task Reallocation and Collaboration |
+| 4      | Planning for the Upcoming Week      |
 
 **Meeting Minutes**
 
@@ -34,9 +34,9 @@
 
 **Action Items**
 
-| Task                               | Assigned To           | Due Date   |
-|------------------------------------|-----------------------|------------|
-| Finalize the data structure        | Shun Liu              | 2024-09-24 |
+| Task                                       | Assigned To            | Due Date   |
+|--------------------------------------------|------------------------|------------|
+| Finalize the data structure                | Shun Liu               | 2024-09-24 |
 | Implement features related to user stories | Wenjing Qi and He Wang | 2024-09-28 |
-| Write `Installation and Setup Guide` | Yuke Huang            | 2024-09-24 |
-| Collaborate on feature development  | All team members      | Ongoing    |
+| Write `Installation and Setup Guide`       | Yuke Huang             | 2024-09-24 |
+| Collaborate on feature development         | All team members       | Ongoing    |
