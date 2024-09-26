@@ -12,17 +12,13 @@ import java.io.IOException;
 
 import java.util.Scanner;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
+
 public class App {
 
     public String getGreeting() {
         return "Hello World!";
     }
-
-    // ANSI color codes
-    private static final String ANSI_GREEN = "\u001B[32m";
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_RESET = "\u001B[0m";
-
 
     // Unicode box drawing characters
     private static final String TOP_LEFT = "+";
