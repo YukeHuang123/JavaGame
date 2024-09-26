@@ -89,7 +89,13 @@ You can also document commands to lint the code or run tests. These steps help t
 Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
+This project is licensed under the **GNU Affero General Public License (AGPL) v3**.
+
+The AGPLv3 allows users to freely use, modify, and distribute the software, provided that any derivative work is also licensed under the AGPLv3. This ensures that the code remains open and accessible to the community.
+
+You can [view the full text of the license here](https://gitlab.cecs.anu.edu.au/u7837228/comp6120-thu16-a3-d/-/blob/main/LICENSE).
+
+For more information on [why we chose the AGPLv3 for our project, please see our justification here](https://gitlab.cecs.anu.edu.au/u7837228/comp6120-thu16-a3-d/-/wikis/home/License).
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
