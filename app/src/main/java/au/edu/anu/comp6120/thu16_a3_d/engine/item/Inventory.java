@@ -12,13 +12,10 @@ import com.google.gson.JsonParser;
 import java.util.Arrays;
 import java.util.Random;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
+
 
 public class Inventory implements ISerializable,IDisplayable {
-
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_GREEN = "\u001B[32m";
-    private static final String ANSI_YELLOW = "\u001B[33m";
-    private static final String ANSI_RESET = "\u001B[0m";
 
     static final int maxWeaponNum = 3;
     static final int maxRecoverNum = 5;
@@ -66,25 +63,24 @@ public class Inventory implements ISerializable,IDisplayable {
         return false;
     }
 
-    public Weapon removeWeapon(int index){
+    public void removeWeapon(int index){
         index -= 1;
         if(index < 0){
             System.out.println(ANSI_RED + "invalid index" + ANSI_RESET);
-            return null;
+            return;
         }
         if(index >= maxWeaponNum){
             System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
-            return null;
+            return;
         }
         if(weaponArray[index] == null ){
             System.out.println(ANSI_RED + "this slot is no weapon" + ANSI_RESET);
-            return null;
+            return;
         }
         //update show the new state
         Weapon ret = weaponArray[index];
         weaponArray[index] = null;
         showInventory();
-        return ret;
     }
 
     public boolean addRecover(Recover recover){
@@ -226,15 +222,6 @@ public class Inventory implements ISerializable,IDisplayable {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Inventory inventory = new Inventory();
-
-        inventory.addWeapon(new Weapon(new Location(1,2),170));
-
-        inventory.addWeapon(new Weapon(new Location(1,3),127));
-        inventory.removeRecover(3);
     }
 
     void generalize(){
