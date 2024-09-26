@@ -5,11 +5,10 @@ package au.edu.anu.comp6120.thu16_a3_d;
 
 import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
-import au.edu.anu.comp6120.thu16_a3_d.engine.GameStateType;
+import au.edu.anu.comp6120.thu16_a3_d.engine.GameStatus;
 import au.edu.anu.comp6120.thu16_a3_d.engine.item.ItemType;
 
 import java.io.IOException;
-
 import java.util.Scanner;
 
 import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
@@ -38,7 +37,7 @@ public class App {
 
             gameState.display();
             //the state
-            System.out.println(ANSI_RED + gameState.getStateType().toString() + ANSI_RESET);
+            System.out.println(ANSI_RED + gameState.getGameStatus().toString() + ANSI_RESET);
             //TODO: this is for test out
             //System.out.println(gameState);
 
@@ -52,13 +51,13 @@ public class App {
 
             processInput(input, gameState);
 
-            if(gameState.getStateType() == GameStateType.LOSS) {
+            if(gameState.getGameStatus() == GameStatus.LOSS) {
                 System.out.println(ANSI_RED + "You lost!" + ANSI_RESET);
                 gameState.display();
                 showLoss();
                 break;
             }
-            if(gameState.getStateType() == GameStateType.WIN) {
+            if(gameState.getGameStatus() == GameStatus.WIN) {
                 System.out.println(ANSI_GREEN + "You win!" + ANSI_RESET);
                 gameState.display();
                 showWin();
@@ -90,7 +89,7 @@ public class App {
     }
 
     private static void processInput(String input, GameState gameState) {
-        GameStateType gameStateType = gameState.getStateType();
+        GameStatus gameStateType = gameState.getGameStatus();
 
         switch (gameStateType) {
             case READY_MOVE -> moveProcess(input, gameState);
