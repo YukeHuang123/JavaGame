@@ -7,3 +7,8 @@
 # Ignore idea cache directory
 .idea
 **/.idea/*
+
+.vscode
+**/.vscode/*
+
+test.java
