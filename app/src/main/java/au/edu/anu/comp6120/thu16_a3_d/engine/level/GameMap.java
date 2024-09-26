@@ -4,17 +4,12 @@ import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.Entity;
-import au.edu.anu.comp6120.thu16_a3_d.engine.entity.NPC;
 import au.edu.anu.comp6120.thu16_a3_d.engine.item.Item;
-import au.edu.anu.comp6120.thu16_a3_d.engine.item.Recover;
-import au.edu.anu.comp6120.thu16_a3_d.engine.item.Weapon;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
-import au.edu.anu.comp6120.thu16_a3_d.utils.MapData;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class GameMap implements ISerializable, IDisplayable {
@@ -56,7 +51,7 @@ public class GameMap implements ISerializable, IDisplayable {
      * @param y
      */
     private void generateMaze(int x, int y) {
-        if(!startLocation.hasSetLocation()){
+        if(!startLocation.validLocation()){
             startLocation.setLocationX(x);
             startLocation.setLocationY(y);
         }
@@ -84,7 +79,7 @@ public class GameMap implements ISerializable, IDisplayable {
         }
 
 
-        if(!exitLocation.hasSetLocation()){
+        if(!exitLocation.validLocation()){
             exitLocation.setLocationX(x);
             exitLocation.setLocationY(y);
             grids[x][y] = new OutGrid();

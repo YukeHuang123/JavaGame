@@ -3,13 +3,13 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_BLUE;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
+
 /**
  * Player class is responsible for player entity
  */
 public class Player extends Entity implements IDisplayable {
-
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_RESET = "\u001B[0m";
 
     private static final int MAX_HEALTH = 100;
 

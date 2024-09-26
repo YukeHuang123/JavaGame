@@ -8,9 +8,10 @@ import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
 import java.util.Map;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_YELLOW;
+
 public class EntityGrid implements Grid {
-    String ANSI_YELLOW = "\u001B[33m";
-    String ANSI_RESET = "\u001B[0m";
 
     private final Entity entity;
 
@@ -58,7 +59,6 @@ public class EntityGrid implements Grid {
         switch(type){
             case ENEMY -> {return "E";}
             case PLAYER -> {return "P";}
-            case NONE -> {return " ";}
             default -> {return " ";}
         }
     }
