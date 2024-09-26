@@ -6,8 +6,7 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 public enum EntityType {
     PLAYER,
     ENEMY,
-    NONE,
-    ITEM;
+    NONE;
 
     /**
      * Get the name of the entity type

@@ -1,6 +1,69 @@
 {
-  "entities": [],
+  "life": 3,
+  "entities": [
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 26,\n  \"locationY\": 6\n}",
+      "health": 100,
+      "max_health": 100,
+      "attack": 60
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 25,\n  \"locationY\": 6\n}",
+      "health": 100,
+      "max_health": 100,
+      "attack": 30
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 24,\n  \"locationY\": 6\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 20
+    },
+    {
+      "type": "player",
+      "location": "{\n  \"locationX\": 22,\n  \"locationY\": 5\n}",
+      "health": 100,
+      "max_health": 100,
+      "attack": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "weapon",
+      "location": "{\n  \"locationX\": 24,\n  \"locationY\": 4\n}",
+      "attack": 30
+    },
+    {
+      "type": "recover",
+      "location": "{\n  \"locationX\": 19,\n  \"locationY\": 6\n}",
+      "recover": 50
+    }
+  ],
+  "inventory": {
+    "items": [
+      {
+        "type": "weapon",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "attack": 48
+      },
+      {
+        "type": "recover",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "recover": 33
+      },
+      {
+        "type": "recover",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "recover": 77
+      }
+    ]
+  },
   "map": {
+    "start": "{\n  \"locationX\": 30,\n  \"locationY\": 10\n}",
+    "exit": "{\n  \"locationX\": 22,\n  \"locationY\": 3\n}",
     "grids": [
       [
         {
@@ -168,45 +231,7 @@
           "type": "EmptyGrid"
         },
         {
-          "type": "WallGrid"
-        },
-        {
           "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
         },
         {
           "type": "EmptyGrid"
@@ -247,30 +272,24 @@
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
         }
       ],
       [
         {
-          "type": "WallGrid"
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
         },
         {
           "type": "EmptyGrid"
@@ -288,26 +307,26 @@
           "type": "EmptyGrid"
         },
         {
-          "type": "WallGrid"
+          "type": "EmptyGrid"
         },
         {
           "type": "EmptyGrid"
         },
         {
           "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
         }
       ],
       [
         {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
           "type": "WallGrid"
         },
         {
@@ -323,7 +342,7 @@
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
+          "type": "WallGrid"
         },
         {
           "type": "WallGrid"
@@ -332,135 +351,15 @@
           "type": "EmptyGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
         }
       ],
       [
         {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
           "type": "EmptyGrid"
         },
         {
           "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
         },
         {
           "type": "EmptyGrid"
@@ -488,123 +387,6 @@
         },
         {
           "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
         },
         {
           "type": "WallGrid"
@@ -615,47 +397,6 @@
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
         },
         {
@@ -671,70 +412,6 @@
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
           "type": "WallGrid"
         },
         {
@@ -742,15 +419,6 @@
         },
         {
           "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
         },
         {
           "type": "WallGrid"
@@ -764,6 +432,15 @@
       ],
       [
         {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
           "type": "WallGrid"
         },
         {
@@ -776,7 +453,71 @@
           "type": "EmptyGrid"
         },
         {
+          "type": "WallGrid"
+        },
+        {
           "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
         },
         {
           "type": "EmptyGrid"
@@ -794,10 +535,165 @@
           "type": "EmptyGrid"
         },
         {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
           "type": "EmptyGrid"
         },
         {
           "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
         }
       ],
       [
@@ -808,16 +704,13 @@
           "type": "WallGrid"
         },
         {
-          "type": "WallGrid"
+          "type": "EmptyGrid"
         },
         {
           "type": "WallGrid"
         },
         {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
+          "type": "EmptyGrid"
         },
         {
           "type": "WallGrid"
@@ -836,31 +729,13 @@
         },
         {
           "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
         }
       ],
       [
         {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
           "type": "EmptyGrid"
         },
         {
@@ -874,13 +749,31 @@
         },
         {
           "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
         }
       ],
       [
         {
-          "type": "WallGrid"
-        },
-        {
           "type": "EmptyGrid"
         },
         {
@@ -905,16 +798,8 @@
           "type": "WallGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
         },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
         {
           "type": "WallGrid"
         },
@@ -928,60 +813,10 @@
           "type": "EmptyGrid"
         },
         {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
           "type": "WallGrid"
         },
         {
           "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        }
-      ],
-      [
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "EmptyGrid"
-        },
-        {
-          "type": "WallGrid"
-        },
-        {
-          "type": "WallGrid"
         },
         {
           "type": "WallGrid"
@@ -1092,6 +927,760 @@
           "type": "EmptyGrid"
         },
         {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        }
+      ],
+      [
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
+          "type": "WallGrid"
+        },
+        {
+          "type": "EmptyGrid"
+        },
+        {
           "type": "WallGrid"
         },
         {
@@ -1156,7 +1745,7 @@
           "type": "EmptyGrid"
         },
         {
-          "type": "WallGrid"
+          "type": "EmptyGrid"
         },
         {
           "type": "EmptyGrid"

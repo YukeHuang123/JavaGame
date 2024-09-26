@@ -5,10 +5,12 @@ package au.edu.anu.comp6120.thu16_a3_d;
 
 import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
-import java.io.IOException;
+import au.edu.anu.comp6120.thu16_a3_d.engine.GameStateType;
+import au.edu.anu.comp6120.thu16_a3_d.engine.item.ItemType;
 
 import java.io.IOException;
-import java.io.Console;
+
+import java.util.Scanner;
 
 public class App {
 
@@ -18,7 +20,9 @@ public class App {
 
     // ANSI color codes
     private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
+
 
     // Unicode box drawing characters
     private static final String TOP_LEFT = "+";
@@ -29,27 +33,41 @@ public class App {
     private static final String VERTICAL = "|";
 
     public static void main(String[] args) throws IOException {
-        GameState gameState = new GameState();
+        GameState gameState = (DataManager.READ_CONFIG_FROM_FILE) ? (DataManager.getInstance().load()) : new GameState();
 
         displayInstructions();
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
+
             gameState.display();
+            //the state
+            System.out.println(ANSI_RED + gameState.getStateType().toString() + ANSI_RESET);
+            //TODO: this is for test out
+            //System.out.println(gameState);
 
-            int input = System.in.read();
+            String input = scanner.nextLine();
 
-            // Consume any additional characters (like newline)
-            while (System.in.available() > 0) {
-                System.in.read();
-            }
-
-            if (input == 'q' || input == 'Q') {
+            if (input.equals("q") || input.equals("Q")) {
                 System.out.println("Quitting the game. Goodbye!");
                 DataManager.getInstance().save(gameState);
                 break;
             }
 
-            processInput((char) input, gameState);
+            processInput(input, gameState);
+
+            if(gameState.getStateType() == GameStateType.LOSS) {
+                System.out.println(ANSI_RED + "You lost!" + ANSI_RESET);
+                gameState.display();
+                showLoss();
+                break;
+            }
+            if(gameState.getStateType() == GameStateType.WIN) {
+                System.out.println(ANSI_GREEN + "You win!" + ANSI_RESET);
+                gameState.display();
+                showWin();
+                break;
+            }
         }
     }
 
@@ -75,26 +93,109 @@ public class App {
         System.out.println(BOTTOM_RIGHT + ANSI_RESET);
     }
 
-    private static void processInput(char input, GameState gameState) {
-        switch (Character.toLowerCase(input)) {
-            case 'w':
+    private static void processInput(String input, GameState gameState) {
+        GameStateType gameStateType = gameState.getStateType();
+
+        switch (gameStateType) {
+            case READY_MOVE -> moveProcess(input, gameState);
+            case FIND_BONUS -> bonusProcess(input, gameState);
+            case MEET_NPC ->  meetNPCProcess(input, gameState);
+            case FIGHTING -> fightProcess(input, gameState);
+        }
+
+        inventoryProcess(input, gameState);
+    }
+
+    private static void moveProcess(String input, GameState gameState){
+        switch (input) {
+            case "w", "W":
                 System.out.println("Moving up");
-                // gameState.movePlayer(0, -1);
+                gameState.movePlayer(0, -1);
                 break;
-            case 's':
+            case "s", "S":
                 System.out.println("Moving down");
-                // gameState.movePlayer(0, 1);
+                gameState.movePlayer(0, 1);
                 break;
-            case 'a':
+            case "a", "A":
                 System.out.println("Moving left");
-                // gameState.movePlayer(-1, 0);
+                gameState.movePlayer(-1, 0);
                 break;
-            case 'd':
+            case "d", "D":
                 System.out.println("Moving right");
-                // gameState.movePlayer(1, 0);
+                gameState.movePlayer(1, 0);
                 break;
             default:
                 // Ignore other inputs
         }
     }
+
+    private static void bonusProcess(String input, GameState gameState){
+        if(input.equals("y") || input.equals("Y")){
+            System.out.println("fetch bonus");
+            gameState.fetchBonus();
+        } else if(input.equals("n") || input.equals("N")){
+            System.out.println("drop bonus");
+            gameState.dropBonus();
+        }
+    }
+
+    private static void meetNPCProcess(String input, GameState gameState){
+        if(input.equals("y") || input.equals("Y")){
+            System.out.println("fight NPC");
+            gameState.chooseToFightNPC();
+        } else if(input.equals("n") || input.equals("N")){
+            System.out.println("run away");
+            gameState.chooseToRunAwayNPC();
+        }
+
+    }
+
+    private static void fightProcess(String input, GameState gameState){
+        //fight choose weapon
+        if(input.length() == 1){
+            if(!Character.isDigit(input.charAt(0))){
+                return;
+            }
+            int weaponIndex = Character.getNumericValue(input.charAt(0));
+            gameState.fightNPC(weaponIndex);
+        }
+    }
+
+    private static void inventoryProcess(String input, GameState gameState){
+        if(input.length()!=6 && input.length()!=5){
+            return;
+        }
+
+        if(input.substring(0,4).equalsIgnoreCase("rm w")){
+            int index  = input.charAt(5) - '0';
+            gameState.removeInventory(ItemType.WEAPON,index);
+        } else if (input.substring(0,4).equalsIgnoreCase("rm r")) {
+            int index  = input.charAt(5) - '0';
+            gameState.removeInventory(ItemType.RECOVER,index);
+        } else if (input.substring(0,3).equalsIgnoreCase("use")) {
+            int index = input.charAt(4) - '0';
+            gameState.userRecover(index);
+        }
+    }
+
+    private static void showWin(){
+        System.out.println(ANSI_GREEN);
+        System.out.println("*-----------**************----------*");
+        System.out.println("|\\                                 /|");
+        System.out.println("| \\ _________ YOU WIN!!!! ________/ |");
+        System.out.println("|                                   |");
+        System.out.println("*-----------**************----------*");
+        System.out.println(ANSI_RESET);
+    }
+
+    private static void showLoss(){
+        System.out.println(ANSI_RED);
+        System.out.println("*-----------**************----------*");
+        System.out.println("|                                   |");
+        System.out.println("| __________ YOU LOSS!!! __________ |");
+        System.out.println("|/                                 \\|");
+        System.out.println("*-----------**************----------*");
+        System.out.println(ANSI_RESET);
+    }
+
 }

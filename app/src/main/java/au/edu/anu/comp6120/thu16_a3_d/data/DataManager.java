@@ -15,12 +15,16 @@ import java.io.IOException;
  */
 public class DataManager {
 
+    public static boolean READ_CONFIG_FROM_FILE = true;
+    public static boolean PRINT_SAVE_JASON = false;
+
     private static final String SAVE_FILE = "save.json";
     private static DataManager instance;
 
+
     /**
      * Gson instance, singleton
-     * We gonna use this instance to serialize and deserialize game state data
+     * We gonna use this instance to serialize and deserialize game state dataq
      * and all other data
      */
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -40,6 +44,7 @@ public class DataManager {
     }
 
     /**
+     *
      * Save the game state data to `save.json` in a formatted JSON
      */
     public void save(GameState gameState) {
@@ -47,8 +52,9 @@ public class DataManager {
             String serializedGameState = gameState.serialize();
             JsonElement jsonElement = JsonParser.parseString(serializedGameState);
             String formattedJson = GSON.toJson(jsonElement);
-            
-            System.out.println("Saving game state: " + formattedJson);
+
+            System.out.println("Saving game state: " + ((PRINT_SAVE_JASON)? formattedJson : ""));
+
             writer.write(formattedJson);
         } catch (IOException e) {
             System.err.println("Error saving game state: " + e.getMessage());
@@ -71,9 +77,10 @@ public class DataManager {
                 content.append((char) character);
             }
             String serializedGameState = content.toString();
-            System.out.println("Loaded game state: " + serializedGameState);
+            System.out.println("Loaded game state: " + ((PRINT_SAVE_JASON)? serializedGameState : ""));
             GameState gameState = new GameState();
             gameState.deserialize(serializedGameState);
+            gameState.initialize();
             return gameState;
         } catch (IOException e) {
             System.err.println("Error loading game state: " + e.getMessage());
