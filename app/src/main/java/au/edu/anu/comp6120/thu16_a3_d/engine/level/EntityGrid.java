@@ -2,12 +2,15 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.level;
 
 import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.Entity;
+import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityType;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class EntityGrid implements Grid {
+public class EntityGrid implements Grid {
+    String ANSI_YELLOW = "\u001B[33m";
+    String ANSI_RESET = "\u001B[0m";
 
     private final Entity entity;
 
@@ -40,7 +43,23 @@ public abstract class EntityGrid implements Grid {
 
     @Override
     public void display() {
+
+        if(entity.getType() == EntityType.ENEMY) {
+            System.out.print(ANSI_YELLOW);
+        }
         System.out.print(entity.getType().getDisplayName());
+        //reset the color
+        System.out.print(ANSI_RESET);
     }
 
+    @Override
+    public String toString() {
+        EntityType type = entity.getType();
+        switch(type){
+            case ENEMY -> {return "E";}
+            case PLAYER -> {return "P";}
+            case NONE -> {return " ";}
+            default -> {return " ";}
+        }
+    }
 }

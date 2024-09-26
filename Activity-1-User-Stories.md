@@ -68,17 +68,17 @@
 
 ## Loot System
 
-1. **As a player, I want to find and open chests to receive loot.**
+1. **As a player, I want to see some treasure chests in the map that will give me some motivation to explore the map.**
    - **Acceptance Criteria:**
-      - There are some chests on the map, players can open them and collect items.
+      - There are some chests on the map.
    - **Estimated Time:** 5 hours
    - **Priority:** Medium
 
-2. **As a player, I want to see the loot and its rarity so that I can evaluate its value.**
-   - **Acceptance Criteria:**
-      - Loot displays clearly with rarity indicators.
-   - **Estimated Time:** 5 hours
-   - **Priority:** Low
+2. **As a player, I want to open the chests to receive loot.**
+    - **Acceptance Criteria:**
+        - Players can open the chests and collect items.
+    - **Estimated Time:** 5 hours
+    - **Priority:** Medium
 
 
 ## Combat System
