@@ -37,13 +37,17 @@
   The team discussed the remaining tasks needed to complete the project, with a focus on:
   1. Writing test cases to ensure the game functions correctly.
   2. Completing the project wiki documentation.
-  3. Writing a 1000-1500 word reflection essay on the development process.
+  3. Writing a group reflection to reflect the whole project progress
+  4. Leaving some time for each member to complete their own 1000-1500 word reflection essay on the development process.
 
 ---
 
 **Action Items**
 
-| Task                                   | Assigned To            | Due Date   |
-|----------------------------------------|------------------------|------------|
-| write test cases and debug      | Shun Liu, He Wang                | 2024-09-29 |
-| Complete project wiki documentation and reflection essay   | Yuke Huang, Wenjing Qi             | 2024-09-29 |
+| Task                                | Assigned To            | Due Date   |
+|-------------------------------------|------------------------|------------|
+| write test cases and debug          | Shun Liu, He Wang      | 2024-09-28 |
+| Complete project wiki documentation | Yuke Huang             | 2024-09-29 |
+| Complete group reflection           | Wenjing Qi             | 2024-09-29 |
+| Improve and detail the wiki files   | Yuke Huang, Wenjing Qi | 2024-09-29 |
+| Finish personal reflection essay    | whole group members    | 2024-09-29 |
