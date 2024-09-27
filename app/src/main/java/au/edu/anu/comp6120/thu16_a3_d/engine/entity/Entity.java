@@ -1,9 +1,9 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 
+import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Direction;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
-import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 

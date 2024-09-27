@@ -1,5 +1,5 @@
 {
-  "life": 3,
+  "life": 10,
   "entities": [
     {
       "type": "enemy",
@@ -24,7 +24,7 @@
     },
     {
       "type": "player",
-      "location": "{\n  \"locationX\": 22,\n  \"locationY\": 5\n}",
+      "location": "{\n  \"locationX\": 20,\n  \"locationY\": 6\n}",
       "health": 100,
       "max_health": 100,
       "attack": 0
@@ -50,6 +50,16 @@
         "attack": 48
       },
       {
+        "type": "weapon",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "attack": 48
+      },
+      {
+        "type": "weapon",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "attack": 48
+      },
+      {
         "type": "recover",
         "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
         "recover": 33
@@ -57,7 +67,22 @@
       {
         "type": "recover",
         "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
-        "recover": 77
+        "recover": 33
+      },
+      {
+        "type": "recover",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "recover": 33
+      },
+      {
+        "type": "recover",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "recover": 33
+      },
+      {
+        "type": "recover",
+        "location": "{\n  \"locationX\": -1,\n  \"locationY\": -1\n}",
+        "recover": 33
       }
     ]
   },

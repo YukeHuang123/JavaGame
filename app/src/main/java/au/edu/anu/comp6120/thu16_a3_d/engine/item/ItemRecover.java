@@ -5,13 +5,14 @@ import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class Recover extends Item{
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_RESET = "\u001B[0m";
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_BLUE;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
+
+public class ItemRecover extends Item{
 
     int recover;
 
-    public Recover(Location location, int recover) {
+    public ItemRecover(Location location, int recover) {
         super(location, ItemType.RECOVER);
         this.recover = recover;
     }

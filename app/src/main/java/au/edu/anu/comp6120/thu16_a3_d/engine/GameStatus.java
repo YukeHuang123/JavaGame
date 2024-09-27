@@ -1,6 +1,6 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine;
 
-public enum GameStateType {
+public enum GameStatus {
     READY_MOVE,
     FIND_BONUS,
     MEET_NPC,

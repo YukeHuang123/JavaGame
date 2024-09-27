@@ -4,18 +4,16 @@ import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.data.ISerializable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.Entity;
-import au.edu.anu.comp6120.thu16_a3_d.engine.entity.NPC;
 import au.edu.anu.comp6120.thu16_a3_d.engine.item.Item;
-import au.edu.anu.comp6120.thu16_a3_d.engine.item.Recover;
-import au.edu.anu.comp6120.thu16_a3_d.engine.item.Weapon;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
-import au.edu.anu.comp6120.thu16_a3_d.utils.MapData;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_YELLOW;
 
 public class GameMap implements ISerializable, IDisplayable {
 
@@ -56,7 +54,7 @@ public class GameMap implements ISerializable, IDisplayable {
      * @param y
      */
     private void generateMaze(int x, int y) {
-        if(!startLocation.hasSetLocation()){
+        if(!startLocation.validLocation()){
             startLocation.setLocationX(x);
             startLocation.setLocationY(y);
         }
@@ -84,10 +82,10 @@ public class GameMap implements ISerializable, IDisplayable {
         }
 
 
-        if(!exitLocation.hasSetLocation()){
+        if(!exitLocation.validLocation()){
             exitLocation.setLocationX(x);
             exitLocation.setLocationY(y);
-            grids[x][y] = new OutGrid();
+            grids[x][y] = new ExitGrid();
         }
     }
 
@@ -133,7 +131,7 @@ public class GameMap implements ISerializable, IDisplayable {
     }
 
     public boolean isExit(int x, int y){
-        return grids[x][y] instanceof OutGrid;
+        return grids[x][y] instanceof ExitGrid;
     }
 
     public boolean isEnemy(int x, int y){
@@ -191,7 +189,7 @@ public class GameMap implements ISerializable, IDisplayable {
                 JsonObject gridObject = new JsonObject();
 
                 //entity and item will not save in the map--data from other source
-                if(grids[x][y] instanceof EntityGrid || grids[x][y] instanceof ItemGrid || grids[x][y] instanceof OutGrid){
+                if(grids[x][y] instanceof EntityGrid || grids[x][y] instanceof ItemGrid || grids[x][y] instanceof ExitGrid){
                     gridObject.addProperty("type", EmptyGrid.class.getSimpleName());
                 } else {
                     gridObject.addProperty("type", grids[x][y].getClass().getSimpleName());
@@ -252,15 +250,12 @@ public class GameMap implements ISerializable, IDisplayable {
 
         this.exitLocation = new Location();
         this.exitLocation.deserialize(jsonObject.get("exit").getAsString());
-        grids[exitLocation.getLocationX()][exitLocation.getLocationY()] = new OutGrid();
+        grids[exitLocation.getLocationX()][exitLocation.getLocationY()] = new ExitGrid();
     }
     //TODO put in correct array
 
     @Override
     public void display() {
-        // ANSI color codes
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         // Unicode box drawing characters
         final String TOP_LEFT = "+";
@@ -301,8 +296,8 @@ public class GameMap implements ISerializable, IDisplayable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("start:" + startLocation+ "\n");
-        stringBuilder.append("exit:" + exitLocation+ "\n");
+        stringBuilder.append("start:").append(startLocation).append("\n");
+        stringBuilder.append("exit:").append(exitLocation).append("\n");
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 if (grids[x][y] != null) {
