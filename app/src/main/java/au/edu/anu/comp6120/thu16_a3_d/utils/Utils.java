@@ -1,8 +1,5 @@
 package au.edu.anu.comp6120.thu16_a3_d.utils;
 
-
-import java.util.UUID;
-
 public class Utils {
 
     public static double calculateDistance(Location loc1, Location loc2) {
