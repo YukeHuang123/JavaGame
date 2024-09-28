@@ -37,7 +37,11 @@ public class Location implements ISerializable {
         this.locationY = locationY;
     }
 
-    public boolean hasSetLocation(){
+    /**
+     *
+     * @return
+     */
+    public boolean validLocation(){
         return locationX != -1 && locationY != -1;
     }
 

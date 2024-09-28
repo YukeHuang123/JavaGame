@@ -12,19 +12,16 @@ import com.google.gson.JsonParser;
 import java.util.Arrays;
 import java.util.Random;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
+
 
 public class Inventory implements ISerializable,IDisplayable {
-
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_GREEN = "\u001B[32m";
-    private static final String ANSI_YELLOW = "\u001B[33m";
-    private static final String ANSI_RESET = "\u001B[0m";
 
     static final int maxWeaponNum = 3;
     static final int maxRecoverNum = 5;
 
-    Weapon[] weaponArray = new Weapon[maxWeaponNum];
-    Recover[] recoverArray = new Recover[maxRecoverNum];
+    ItemWeapon[] itemWeaponArray = new ItemWeapon[maxWeaponNum];
+    ItemRecover[] itemRecoverArray = new ItemRecover[maxRecoverNum];
 
     public Inventory() {
         if(!DataManager.READ_CONFIG_FROM_FILE){
@@ -32,7 +29,7 @@ public class Inventory implements ISerializable,IDisplayable {
         }
     }
 
-    public Weapon getWeapon(int index){
+    public ItemWeapon getWeapon(int index){
         index -= 1;
         if(index < 0){
             System.out.println(ANSI_RED + "invalid index" + ANSI_RESET);
@@ -42,20 +39,20 @@ public class Inventory implements ISerializable,IDisplayable {
             System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
             return null;
         }
-        if(weaponArray[index] == null ){
+        if(itemWeaponArray[index] == null ){
             System.out.println(ANSI_RED + "this slot is no weapon" + ANSI_RESET);
             return null;
         }
         //update show the new state
-        Weapon ret = weaponArray[index];
+        ItemWeapon ret = itemWeaponArray[index];
         showInventory();
         return ret;
     }
 
-    public boolean addWeapon(Weapon weapon){
+    public boolean addWeapon(ItemWeapon itemWeapon){
         for (int i = 0; i < maxWeaponNum; i++) {
-            if(weaponArray[i] == null){
-                weaponArray[i] = weapon;
+            if(itemWeaponArray[i] == null){
+                itemWeaponArray[i] = itemWeapon;
                 showInventory();
                 return true;
             }
@@ -66,31 +63,30 @@ public class Inventory implements ISerializable,IDisplayable {
         return false;
     }
 
-    public Weapon removeWeapon(int index){
+    public void removeWeapon(int index){
         index -= 1;
         if(index < 0){
             System.out.println(ANSI_RED + "invalid index" + ANSI_RESET);
-            return null;
+            return;
         }
         if(index >= maxWeaponNum){
             System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
-            return null;
+            return;
         }
-        if(weaponArray[index] == null ){
+        if(itemWeaponArray[index] == null ){
             System.out.println(ANSI_RED + "this slot is no weapon" + ANSI_RESET);
-            return null;
+            return;
         }
         //update show the new state
-        Weapon ret = weaponArray[index];
-        weaponArray[index] = null;
+        ItemWeapon ret = itemWeaponArray[index];
+        itemWeaponArray[index] = null;
         showInventory();
-        return ret;
     }
 
-    public boolean addRecover(Recover recover){
+    public boolean addRecover(ItemRecover itemRecover){
         for (int i = 0; i < maxRecoverNum; i++) {
-            if(recoverArray[i] == null){
-                recoverArray[i] = recover;
+            if(itemRecoverArray[i] == null){
+                itemRecoverArray[i] = itemRecover;
                 showInventory();
                 return true;
             }
@@ -101,7 +97,7 @@ public class Inventory implements ISerializable,IDisplayable {
         return false;
     }
 
-    public Recover removeRecover(int index){
+    public ItemRecover removeRecover(int index){
         index -= 1;
 
         if(index < 0){
@@ -112,13 +108,13 @@ public class Inventory implements ISerializable,IDisplayable {
             System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
             return null;
         }
-        if(recoverArray[index] == null ){
+        if(itemRecoverArray[index] == null ){
             System.out.println(ANSI_RED + "this slot is no recover" + ANSI_RESET);
             return null;
         }
         //update show the new state
-        Recover ret = recoverArray[index];
-        recoverArray[index] = null;
+        ItemRecover ret = itemRecoverArray[index];
+        itemRecoverArray[index] = null;
         showInventory();
         return ret;
     }
@@ -127,13 +123,13 @@ public class Inventory implements ISerializable,IDisplayable {
         System.out.println("Inventory: " + ANSI_YELLOW + "only carry  " + maxWeaponNum + "  weapons and   "+  maxRecoverNum +" recovers!" + " use commend (use index) to use the recover" + ANSI_RESET);
 
         System.out.print(ANSI_GREEN + "    --Weapons(attack): ");
-        for (int i = 0; i < weaponArray.length; i++) {
-            Weapon weapon = weaponArray[i];
+        for (int i = 0; i < itemWeaponArray.length; i++) {
+            ItemWeapon itemWeapon = itemWeaponArray[i];
             String weaponString;
-            if(weapon == null){
+            if(itemWeapon == null){
                 weaponString = "    ";
             } else {
-                int weaponAttribute = weapon.getAttributes();
+                int weaponAttribute = itemWeapon.getAttributes();
                 if(weaponAttribute < 10){
                     weaponString = weaponAttribute + "   ";
                 } else if (weaponAttribute <100){
@@ -152,14 +148,14 @@ public class Inventory implements ISerializable,IDisplayable {
         System.out.println(ANSI_RESET);
 
         System.out.print(ANSI_GREEN + "    --Recovers ( Hp ): ");
-        for (int i = 0; i < recoverArray.length; i++) {
-            Recover recover = recoverArray[i];
+        for (int i = 0; i < itemRecoverArray.length; i++) {
+            ItemRecover itemRecover = itemRecoverArray[i];
             String recoverString;
 
-            if(recover == null){
+            if(itemRecover == null){
                 recoverString = "    ";
             } else {
-                int recoverAttributes = recover.getAttributes();
+                int recoverAttributes = itemRecover.getAttributes();
                 if(recoverAttributes < 10){
                     recoverString = recoverAttributes + "   ";
                 } else if (recoverAttributes < 100){
@@ -185,12 +181,12 @@ public class Inventory implements ISerializable,IDisplayable {
     public String serialize() {
         JsonObject jsonObject = new JsonObject();
         JsonArray itemArray = new JsonArray();
-        for (Item item : weaponArray){
+        for (Item item : itemWeaponArray){
             if(item!=null){
                 itemArray.add(JsonParser.parseString(item.serialize()));
             }
         }
-        for (Item item : recoverArray){
+        for (Item item : itemRecoverArray){
             if(item!=null){
                 itemArray.add(JsonParser.parseString(item.serialize()));
             }
@@ -209,51 +205,42 @@ public class Inventory implements ISerializable,IDisplayable {
         for(JsonElement itemElement : entitiesArray){
             JsonObject itemObject = itemElement.getAsJsonObject();
             if(itemObject.get("type").getAsString().equals(ItemType.WEAPON.getName()) ){
-                Weapon weapon = new Weapon(new Location(), 0);
-                weapon.deserialize(itemElement.toString());
+                ItemWeapon itemWeapon = new ItemWeapon(new Location(), 0);
+                itemWeapon.deserialize(itemElement.toString());
                 for (int i = 0; i < maxWeaponNum; i++) {
-                    if(weaponArray[i] == null){
-                        weaponArray[i] = weapon;
+                    if(itemWeaponArray[i] == null){
+                        itemWeaponArray[i] = itemWeapon;
                     }
                 }
             } else if(itemObject.get("type").getAsString().equals(ItemType.RECOVER.getName()) ) {
-                Recover recover = new Recover(new Location(), 0);
-                recover.deserialize(itemElement.toString());
+                ItemRecover itemRecover = new ItemRecover(new Location(), 0);
+                itemRecover.deserialize(itemElement.toString());
                 for (int i = 0; i < maxRecoverNum; i++) {
-                    if(recoverArray[i] == null){
-                        recoverArray[i] = recover;
+                    if(itemRecoverArray[i] == null){
+                        itemRecoverArray[i] = itemRecover;
                     }
                 }
             }
         }
     }
 
-    public static void main(String[] args) {
-        Inventory inventory = new Inventory();
-
-        inventory.addWeapon(new Weapon(new Location(1,2),170));
-
-        inventory.addWeapon(new Weapon(new Location(1,3),127));
-        inventory.removeRecover(3);
-    }
-
     void generalize(){
         Random random = new Random();
         int max = 100;
 
-        addWeapon(new Weapon(new Location(),random.nextInt(max)+1));
-        addWeapon(new Weapon(new Location(),random.nextInt(max)+1));
-        addWeapon(new Weapon(new Location(),random.nextInt(max)+1));
+        addWeapon(new ItemWeapon(new Location(),random.nextInt(max)+1));
+        addWeapon(new ItemWeapon(new Location(),random.nextInt(max)+1));
+        addWeapon(new ItemWeapon(new Location(),random.nextInt(max)+1));
 
 
-        addRecover(new Recover(new Location(),random.nextInt(max)+1));
-        addRecover(new Recover(new Location(),random.nextInt(max)+1));
-        addRecover(new Recover(new Location(),random.nextInt(max)+1));
+        addRecover(new ItemRecover(new Location(),random.nextInt(max)+1));
+        addRecover(new ItemRecover(new Location(),random.nextInt(max)+1));
+        addRecover(new ItemRecover(new Location(),random.nextInt(max)+1));
     }
 
     @Override
     public String toString() {
-        return  "\n  weaponArray =" + Arrays.toString(weaponArray) +
-                "\n  recoverArray=" + Arrays.toString(recoverArray);
+        return  "\n  weaponArray =" + Arrays.toString(itemWeaponArray) +
+                "\n  recoverArray=" + Arrays.toString(itemRecoverArray);
     }
 }
