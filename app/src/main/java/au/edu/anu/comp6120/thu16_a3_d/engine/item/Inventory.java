@@ -237,6 +237,8 @@ public class Inventory implements ISerializable,IDisplayable {
                 for (int i = 0; i < maxWeaponNum; i++) {
                     if(itemWeaponArray[i] == null){
                         itemWeaponArray[i] = itemWeapon;
+                        //after put, just break
+                        break;
                     }
                 }
             } else if(itemObject.get("type").getAsString().equals(ItemType.RECOVER.getName()) ) {
@@ -245,6 +247,8 @@ public class Inventory implements ISerializable,IDisplayable {
                 for (int i = 0; i < maxRecoverNum; i++) {
                     if(itemRecoverArray[i] == null){
                         itemRecoverArray[i] = itemRecover;
+                        //after put, just break
+                        break;
                     }
                 }
             }
