@@ -5,6 +5,7 @@ import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityPlayer;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.GameMap;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * verify if the player's position updates correctly based on the input.
  */
 public class PlayerMovementTest {
-    private GameState gameState;
+    static private GameState gameState;
 
     static int locationX = 7;
     static int locationY = 2;
@@ -23,8 +24,8 @@ public class PlayerMovementTest {
      * Sets up the game state and places the player at a known location before each test.
      * The player is placed in an empty grid, and the surrounding grids are marked as empty.
      */
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
 
         gameState = GameState.getInstance();
         gameState.initialize();
