@@ -17,8 +17,8 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
 
 public class Inventory implements ISerializable,IDisplayable {
 
-    static final int maxWeaponNum = 3;
-    static final int maxRecoverNum = 5;
+    public static final int maxWeaponNum = 3;
+    public static final int maxRecoverNum = 5;
 
     ItemWeapon[] itemWeaponArray = new ItemWeapon[maxWeaponNum];
     ItemRecover[] itemRecoverArray = new ItemRecover[maxRecoverNum];
@@ -63,24 +63,25 @@ public class Inventory implements ISerializable,IDisplayable {
         return false;
     }
 
-    public void removeWeapon(int index){
+    public ItemWeapon removeWeapon(int index){
         index -= 1;
         if(index < 0){
             System.out.println(ANSI_RED + "invalid index" + ANSI_RESET);
-            return;
+            return null;
         }
         if(index >= maxWeaponNum){
             System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
-            return;
+            return null;
         }
         if(itemWeaponArray[index] == null ){
             System.out.println(ANSI_RED + "this slot is no weapon" + ANSI_RESET);
-            return;
+            return null;
         }
         //update show the new state
         ItemWeapon ret = itemWeaponArray[index];
         itemWeaponArray[index] = null;
         showInventory();
+        return ret;
     }
 
     public boolean addRecover(ItemRecover itemRecover){
@@ -95,6 +96,32 @@ public class Inventory implements ISerializable,IDisplayable {
         //not find show error
         System.out.println(ANSI_RED + "xxxx no rest slot for storing recover, please remove some of the recover use command (rm r + index)!" + ANSI_RESET);
         return false;
+    }
+
+    /**
+     * get the recover by index
+     * @param index the index of recover in the slot
+     * @return the recover instance in the index
+     */
+    public ItemRecover getRecover(int index){
+        index -= 1;
+
+        if(index < 0){
+            System.out.println(ANSI_RED + "invalid index (negative)" + ANSI_RESET);
+            return null;
+        }
+        if(index >= maxRecoverNum){
+            System.out.println(ANSI_RED + "index out of bounds" + ANSI_RESET);
+            return null;
+        }
+        if(itemRecoverArray[index] == null ){
+            System.out.println(ANSI_RED + "this slot is no recover" + ANSI_RESET);
+            return null;
+        }
+        //update show the new state
+        ItemRecover ret = itemRecoverArray[index];
+        showInventory();
+        return ret;
     }
 
     public ItemRecover removeRecover(int index){
