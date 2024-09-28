@@ -295,7 +295,7 @@ public class GameState implements ISerializable, IDisplayable {
 
         // debug
         // print current work directory
-        System.out.println(ANSI_BLUE + "Current work directory: " + System.getProperty("user.dir") + ANSI_RESET);
+        // System.out.println(ANSI_BLUE + "Current work directory: " + System.getProperty("user.dir") + ANSI_RESET);
 
 
         entityPlayer.display();
