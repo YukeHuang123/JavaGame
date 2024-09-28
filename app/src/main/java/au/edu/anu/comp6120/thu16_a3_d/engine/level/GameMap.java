@@ -251,6 +251,21 @@ public class GameMap implements ISerializable, IDisplayable {
 
 
     /**
+     * Sets the specified grid.
+     * @param X The x-coordinate of the grid to clear.
+     * @param Y The y-coordinate of the grid to clear.
+     * @param grid the set grid
+     */
+    public void setGrid(int X, int Y, Grid grid){
+        if(!isInBounds(X,Y)){
+            return;
+        }
+        if(grid == null){
+            return;
+        }
+        grids[X][Y] = grid;
+    }
+    /**
      * Serializes the game grid into a JSON string format.
      * @return A JSON string representation of the game grid, including the start and exit locations.
      */
