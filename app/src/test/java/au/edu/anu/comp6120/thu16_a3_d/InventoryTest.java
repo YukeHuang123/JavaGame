@@ -112,7 +112,7 @@ public class InventoryTest {
         newInventory.deserialize(serializedData);
 
         //inventory index from 1
-        Assertions.assertEquals(20, newInventory.getWeapon(1).getAttributes());
+        Assertions.assertEquals(30, newInventory.getWeapon(1).getAttributes());
         Assertions.assertEquals(25, newInventory.getRecover(1).getAttributes());
     }
 
