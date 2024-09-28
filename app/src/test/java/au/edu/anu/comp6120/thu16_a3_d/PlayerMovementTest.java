@@ -5,7 +5,6 @@ import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityPlayer;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.GameMap;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
