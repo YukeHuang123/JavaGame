@@ -1,5 +1,8 @@
 package au.edu.anu.comp6120.thu16_a3_d.utils;
 
+/**
+ * A utility class that provides ANSI color codes for console output.
+ */
 public class ANSIColors {
 
     // ANSI color codes

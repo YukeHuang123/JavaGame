@@ -4,6 +4,11 @@ import au.edu.anu.comp6120.thu16_a3_d.engine.level.EmptyGrid;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.Grid;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.WallGrid;
 
+/**
+ * The MapData class contains predefined levels for the game.
+ * Each level is represented as a 2D array of Grid objects,
+ * which can be either walls or empty spaces.
+ */
 public class MapData {
 
     /**

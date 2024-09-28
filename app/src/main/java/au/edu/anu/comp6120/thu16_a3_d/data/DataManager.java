@@ -30,12 +30,16 @@ public class DataManager {
      */
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
+    /**
+     * Private constructor to prevent instantiation from outside the class.
+     */
     private DataManager() {
         // Private constructor to prevent instantiation
     }
 
     /**
-     * Get the singleton instance of DataManager
+     * Gets the singleton instance of DataManager.
+     * @return the singleton instance of DataManager
      */
     public static DataManager getInstance() {
         if (instance == null) {
@@ -45,8 +49,8 @@ public class DataManager {
     }
 
     /**
-     *
-     * Save the game state data to `save.json` in a formatted JSON
+     * Saves the game state data to `save.json` in a formatted JSON.
+     * @param gameState the current state of the game to be saved
      */
     public void save(GameState gameState) {
         try (FileWriter writer = new FileWriter(SAVE_FILE)) {
@@ -63,7 +67,8 @@ public class DataManager {
     }
 
     /**
-     * Load the game state data from `save.json`
+     * Loads the game state data from `save.json`.
+     * @return the loaded game state, or a new GameState if the file doesn't exist or an error occurs
      */
     public GameState load() {
         File file = new File(SAVE_FILE);
