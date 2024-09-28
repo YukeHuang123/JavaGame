@@ -264,6 +264,13 @@ public class GameState implements ISerializable, IDisplayable {
 
 
     /**
+     * set the life of the player
+     * @param life input the life of the player
+     */
+    public void setLife(int life){
+        this.life = life;
+    }
+    /**
      * Heals the player using a recover item from the inventory.
      * @param index The index of the recover item in the inventory.
      */
@@ -288,6 +295,14 @@ public class GameState implements ISerializable, IDisplayable {
      */
     public GameMap getMap() {
         return map;
+    }
+
+    /**
+     * Returns the inventory.
+     * @return The inventory.
+     */
+    public Inventory getInventory() {
+        return inventory;
     }
 
     /**
