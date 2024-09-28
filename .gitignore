@@ -6,3 +6,12 @@
 
 # Ignore idea cache directory
 .idea
+**/.idea/*
+
+.vscode
+**/.vscode/*
+
+test.java
+./test.java
+
+.DS_Store

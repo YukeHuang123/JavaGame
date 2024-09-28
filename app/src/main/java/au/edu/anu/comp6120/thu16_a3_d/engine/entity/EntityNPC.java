@@ -3,13 +3,12 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 
-public class NPC extends Entity implements IDisplayable {
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_BLUE;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_RESET = "\u001B[0m";
+public class EntityNPC extends Entity implements IDisplayable {
 
-
-    public NPC(int maxHealth, int attack, Location location) {
+    public EntityNPC(int maxHealth, int attack, Location location) {
         super(maxHealth, attack , location, EntityType.ENEMY);
     }
 
