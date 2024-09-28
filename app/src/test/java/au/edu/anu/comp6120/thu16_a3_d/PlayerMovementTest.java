@@ -8,14 +8,21 @@ import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
-
+/**
+ * This class contains unit tests for player movement in the game. It tests various movement directions
+ * (up, down, left, right) as well as invalid movement inputs. The tests simulate player movement and
+ * verify if the player's position updates correctly based on the input.
+ */
 public class PlayerMovementTest {
     private GameState gameState;
 
     static int locationX = 7;
     static int locationY = 2;
 
+    /**
+     * Sets up the game state and places the player at a known location before each test.
+     * The player is placed in an empty grid, and the surrounding grids are marked as empty.
+     */
     @BeforeEach
     public void setUp() {
 
@@ -35,6 +42,13 @@ public class PlayerMovementTest {
         gameMap.setGridEmpty(locationX,locationY+1);
     }
 
+
+    /**
+     * Simulates the player movement based on the input and updates the player's location in the game.
+     *
+     * @param input The input representing the direction of movement ("W", "A", "S", "D")
+     * @param gameState The current game state
+     */
     private static void moveProcess(String input, GameState gameState) {
         switch (input) {
             case "w", "W":
@@ -58,6 +72,10 @@ public class PlayerMovementTest {
         }
     }
 
+    /**
+     * Tests the player's movement upwards when the "W" key is pressed.
+     * The player's Y-coordinate should decrease by 1.
+     */
     @Test
     public void testPlayerMovementW() {
         // Simulate pressing 'A'
@@ -70,6 +88,10 @@ public class PlayerMovementTest {
     }
 
 
+    /**
+     * Tests the player's movement to the left when the "A" key is pressed.
+     * The player's X-coordinate should decrease by 1.
+     */
     @Test
     public void testPlayerMovementA() {
         // Simulate pressing 'A'
@@ -81,6 +103,10 @@ public class PlayerMovementTest {
         assertEquals(locationY, newLocation.getLocationY());
     }
 
+    /**
+     * Tests the player's movement downwards when the "S" key is pressed.
+     * The player's Y-coordinate should increase by 1.
+     */
     @Test
     public void testPlayerMovementS() {
         // Simulate pressing 'S'
@@ -92,6 +118,10 @@ public class PlayerMovementTest {
         assertEquals(locationY, newLocation.getLocationY());
     }
 
+    /**
+     * Tests the player's movement downwards when the "D" key is pressed.
+     * The player's X-coordinate should increase by 1.
+     */
     @Test
     public void testPlayerMovementD() {
         // Simulate pressing 'D'
@@ -103,6 +133,11 @@ public class PlayerMovementTest {
         assertEquals(locationY, newLocation.getLocationY());
     }
 
+
+    /**
+     * Tests invalid player input by simulating pressing an invalid key (e.g., "X").
+     * The player's position should not change.
+     */
     @Test
     public void testPlayerMovementInvalidInput() {
         // Store the initial location
