@@ -1,7 +1,6 @@
 package au.edu.anu.comp6120.thu16_a3_d;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityPlayer;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.GameMap;
@@ -65,7 +64,7 @@ public class PlayerMovementTest {
         moveProcess("W", gameState);
         locationY -= 1;
         // Verify the player's new location
-        Location newLocation = gameState.getEntities().get(0).getLocation();
+        Location newLocation = gameState.getEntityPlayer().getLocation();
         assertEquals(locationX, newLocation.getLocationX());
         assertEquals(locationY, newLocation.getLocationY());
     }
@@ -77,7 +76,7 @@ public class PlayerMovementTest {
         moveProcess("A", gameState);
         locationX -= 1;
         // Verify the player's new location
-        Location newLocation = gameState.getEntities().get(0).getLocation();
+        Location newLocation = gameState.getEntityPlayer().getLocation();
         assertEquals(locationX, newLocation.getLocationX());
         assertEquals(locationY, newLocation.getLocationY());
     }
@@ -88,7 +87,7 @@ public class PlayerMovementTest {
         moveProcess("S", gameState);
         locationY += 1;
         // Verify the player's new location
-        Location newLocation = gameState.getEntities().get(0).getLocation();
+        Location newLocation = gameState.getEntityPlayer().getLocation();
         assertEquals(locationX, newLocation.getLocationX());
         assertEquals(locationY, newLocation.getLocationY());
     }
@@ -99,7 +98,7 @@ public class PlayerMovementTest {
         moveProcess("D", gameState);
         locationX += 1;
         // Verify the player's new location
-        Location newLocation = gameState.getEntities().get(0).getLocation();
+        Location newLocation = gameState.getEntityPlayer().getLocation();
         assertEquals(locationX, newLocation.getLocationX());
         assertEquals(locationY, newLocation.getLocationY());
     }
@@ -107,13 +106,13 @@ public class PlayerMovementTest {
     @Test
     public void testPlayerMovementInvalidInput() {
         // Store the initial location
-        Location initialLocation = gameState.getEntities().get(0).getLocation();
+        Location initialLocation = gameState.getEntityPlayer().getLocation();
 
         // Simulate invalid key press
         moveProcess("X",gameState); // Invalid input should not change position
 
         // Verify the player's location hasn't changed
-        Location newLocation = gameState.getEntities().get(0).getLocation();
+        Location newLocation = gameState.getEntityPlayer().getLocation();
         assertEquals(initialLocation.getLocationX(), newLocation.getLocationX());
         assertEquals(initialLocation.getLocationY(), newLocation.getLocationY());
     }
