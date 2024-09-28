@@ -4,21 +4,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityPlayer;
+import au.edu.anu.comp6120.thu16_a3_d.engine.level.GameMap;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 public class PlayerMovementTest {
     private GameState gameState;
 
+    static int locationX = 7;
+    static int locationY = 2;
+
     @BeforeEach
     public void setUp() {
+
         gameState = GameState.getInstance();
         gameState.initialize();
         // Reset the player and place it at a known location
-        EntityPlayer player = new EntityPlayer(new Location(7, 2));
+        EntityPlayer player = new EntityPlayer(new Location(locationX, locationY));
         gameState.spawnEntity(player);
         gameState.findPlayer(); // Initialize the player entity in the game state
+
+
+        //set entity 4 direction be the empty grid
+        GameMap gameMap = gameState.getMap();
+        gameMap.setGridEmpty(locationX-1,locationY);
+        gameMap.setGridEmpty(locationX+1,locationY);
+        gameMap.setGridEmpty(locationX,locationY-1);
+        gameMap.setGridEmpty(locationX,locationY+1);
     }
 
     private static void moveProcess(String input, GameState gameState) {
@@ -46,46 +61,47 @@ public class PlayerMovementTest {
 
     @Test
     public void testPlayerMovementW() {
-        // Simulate pressing 'W'
+        // Simulate pressing 'A'
         moveProcess("W", gameState);
-
+        locationY -= 1;
         // Verify the player's new location
         Location newLocation = gameState.getEntities().get(0).getLocation();
-        assertEquals(7, newLocation.getLocationX()); // X should remain the same
-        assertEquals(1, newLocation.getLocationY()); // Y should be 1, 因为 Y 从 2 变为 1
+        assertEquals(locationX, newLocation.getLocationX());
+        assertEquals(locationY, newLocation.getLocationY());
     }
+
 
     @Test
     public void testPlayerMovementA() {
         // Simulate pressing 'A'
         moveProcess("A", gameState);
-
+        locationX -= 1;
         // Verify the player's new location
         Location newLocation = gameState.getEntities().get(0).getLocation();
-        assertEquals(6, newLocation.getLocationX()); // X should be -1
-        assertEquals(2, newLocation.getLocationY()); // Y should remain the same
+        assertEquals(locationX, newLocation.getLocationX());
+        assertEquals(locationY, newLocation.getLocationY());
     }
 
     @Test
     public void testPlayerMovementS() {
         // Simulate pressing 'S'
         moveProcess("S", gameState);
-
+        locationY += 1;
         // Verify the player's new location
         Location newLocation = gameState.getEntities().get(0).getLocation();
-        assertEquals(7, newLocation.getLocationX()); // X should remain the same
-        assertEquals(3, newLocation.getLocationY()); // Y should be 1
+        assertEquals(locationX, newLocation.getLocationX());
+        assertEquals(locationY, newLocation.getLocationY());
     }
 
     @Test
     public void testPlayerMovementD() {
         // Simulate pressing 'D'
         moveProcess("D", gameState);
-
+        locationX += 1;
         // Verify the player's new location
         Location newLocation = gameState.getEntities().get(0).getLocation();
-        assertEquals(7, newLocation.getLocationX()); // X should be 1
-        assertEquals(2, newLocation.getLocationY()); // Y should remain the same
+        assertEquals(locationX, newLocation.getLocationX());
+        assertEquals(locationY, newLocation.getLocationY());
     }
 
     @Test
@@ -94,7 +110,7 @@ public class PlayerMovementTest {
         Location initialLocation = gameState.getEntities().get(0).getLocation();
 
         // Simulate invalid key press
-        simulateKeyPress("X"); // Invalid input should not change position
+        moveProcess("X",gameState); // Invalid input should not change position
 
         // Verify the player's location hasn't changed
         Location newLocation = gameState.getEntities().get(0).getLocation();
