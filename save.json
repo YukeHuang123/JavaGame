@@ -23,6 +23,48 @@
       "attack": 20
     },
     {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 22,\n  \"locationY\": 8\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 15
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 22,\n  \"locationY\": 9\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 15
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 19,\n  \"locationY\": 8\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 25
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 4,\n  \"locationY\": 29\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 25
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 19,\n  \"locationY\": 8\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 10
+    },
+    {
+      "type": "enemy",
+      "location": "{\n  \"locationX\": 2,\n  \"locationY\": 5\n}",
+      "health": 30,
+      "max_health": 100,
+      "attack": 25
+    },
+    {
       "type": "player",
       "location": "{\n  \"locationX\": 22,\n  \"locationY\": 5\n}",
       "health": 100,
