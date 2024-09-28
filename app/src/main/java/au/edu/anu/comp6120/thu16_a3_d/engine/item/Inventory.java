@@ -14,7 +14,11 @@ import java.util.Random;
 
 import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
 
-
+/**
+ * Represents an inventory that can hold weapons and recovery items.
+ * The inventory has a maximum capacity for weapons and recovery items,
+ * and provides methods to add, remove, and display these items.
+ */
 public class Inventory implements ISerializable,IDisplayable {
 
     public static final int maxWeaponNum = 3;
@@ -23,12 +27,22 @@ public class Inventory implements ISerializable,IDisplayable {
     ItemWeapon[] itemWeaponArray = new ItemWeapon[maxWeaponNum];
     ItemRecover[] itemRecoverArray = new ItemRecover[maxRecoverNum];
 
+    /**
+     * Constructs an Inventory and initializes it with default items if
+     * configuration is not read from a file.
+     */
     public Inventory() {
         if(!DataManager.READ_CONFIG_FROM_FILE){
             generalize();
         }
     }
 
+    /**
+     * Gets the weapon at the specified index in the inventory.
+     *
+     * @param index the index of the weapon (1-based)
+     * @return the weapon at the specified index, or null if not found
+     */
     public ItemWeapon getWeapon(int index){
         index -= 1;
         if(index < 0){
@@ -49,6 +63,11 @@ public class Inventory implements ISerializable,IDisplayable {
         return ret;
     }
 
+    /**
+     * Adds a weapon to the inventory.
+     * @param itemWeapon the weapon to add
+     * @return true if the weapon was added, false if the inventory is full
+     */
     public boolean addWeapon(ItemWeapon itemWeapon){
         for (int i = 0; i < maxWeaponNum; i++) {
             if(itemWeaponArray[i] == null){
@@ -63,6 +82,11 @@ public class Inventory implements ISerializable,IDisplayable {
         return false;
     }
 
+    /**
+     * Removes the weapon at the specified index from the inventory.
+     * @param index the index of the weapon to remove (1-based)
+     * @return the removed weapon, or null if not found
+     */
     public ItemWeapon removeWeapon(int index){
         index -= 1;
         if(index < 0){
@@ -84,6 +108,11 @@ public class Inventory implements ISerializable,IDisplayable {
         return ret;
     }
 
+    /**
+     * Adds a recovery item to the inventory.
+     * @param itemRecover the recovery item to add
+     * @return true if the item was added, false if the inventory is full
+     */
     public boolean addRecover(ItemRecover itemRecover){
         for (int i = 0; i < maxRecoverNum; i++) {
             if(itemRecoverArray[i] == null){
@@ -124,6 +153,12 @@ public class Inventory implements ISerializable,IDisplayable {
         return ret;
     }
 
+    /**
+     * Removes the recovery item at the specified index from the inventory.
+     *
+     * @param index the index of the recovery item to remove (1-based)
+     * @return the removed recovery item, or null if not found
+     */
     public ItemRecover removeRecover(int index){
         index -= 1;
 
@@ -146,6 +181,9 @@ public class Inventory implements ISerializable,IDisplayable {
         return ret;
     }
 
+    /**
+     * Displays the current state of the inventory, showing weapons and recovery items.
+     */
     public void showInventory(){
         System.out.println("Inventory: " + ANSI_YELLOW + "only carry  " + maxWeaponNum + "  weapons and   "+  maxRecoverNum +" recovers!" + " use commend (use index) to use the recover" + ANSI_RESET);
 
@@ -199,11 +237,18 @@ public class Inventory implements ISerializable,IDisplayable {
 
     }
 
+    /**
+     * Displays the inventory.
+     */
     @Override
     public void display() {
         showInventory();
     }
 
+    /**
+     * Serializes the inventory to a JSON string.
+     * @return a JSON representation of the inventory
+     */
     @Override
     public String serialize() {
         JsonObject jsonObject = new JsonObject();
@@ -222,6 +267,10 @@ public class Inventory implements ISerializable,IDisplayable {
         return jsonObject.toString();
     }
 
+    /**
+     * Deserializes the inventory from a JSON string.
+     * @param data the JSON string to deserialize
+     */
     @Override
     public void deserialize(String data) {
         JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
@@ -255,6 +304,9 @@ public class Inventory implements ISerializable,IDisplayable {
         }
     }
 
+    /**
+     * Initializes the inventory with default items.
+     */
     void generalize(){
         Random random = new Random();
         int max = 100;
@@ -269,6 +321,10 @@ public class Inventory implements ISerializable,IDisplayable {
         addRecover(new ItemRecover(new Location(),random.nextInt(max)+1));
     }
 
+    /**
+     * string of the inventory
+     * @return string of the inventory
+     */
     @Override
     public String toString() {
         return  "\n  weaponArray =" + Arrays.toString(itemWeaponArray) +
