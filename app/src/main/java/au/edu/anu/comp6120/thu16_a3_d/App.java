@@ -13,8 +13,15 @@ import java.util.Scanner;
 
 import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
 
+/**
+ * entrance of the program
+ */
 public class App {
 
+    /**
+     * Returns a greeting message.
+     * @return A string greeting message.
+     */
     public String getGreeting() {
         return "Hello World!";
     }
@@ -27,6 +34,11 @@ public class App {
     private static final String HORIZONTAL = "-";
     private static final String VERTICAL = "|";
 
+    /**
+     * The main entry point for the application.
+     * @param args Command line arguments.
+     * @throws IOException If there is an error loading or saving the game state.
+     */
     public static void main(String[] args) throws IOException {
         GameState gameState = (DataManager.READ_CONFIG_FROM_FILE) ? (DataManager.getInstance().load()) : new GameState();
 
@@ -38,7 +50,6 @@ public class App {
             gameState.display();
             //the state
             System.out.println(ANSI_RED + gameState.getGameStatus().toString() + ANSI_RESET);
-            //TODO: this is for test out
             //System.out.println(gameState);
 
             String input = scanner.nextLine();
@@ -66,6 +77,9 @@ public class App {
         }
     }
 
+    /**
+     * Displays the game instructions.
+     */
     private static void displayInstructions() {
         String message = " Use W/A/S/D to move, Q to quit ";
         int width = message.length() + 2; // Add 2 for left and right padding
@@ -88,6 +102,11 @@ public class App {
         System.out.println(BOTTOM_RIGHT + ANSI_RESET);
     }
 
+    /**
+     * Processes user input based on the current game state.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void processInput(String input, GameState gameState) {
         GameStatus gameStateType = gameState.getGameStatus();
 
@@ -101,6 +120,11 @@ public class App {
         inventoryProcess(input, gameState);
     }
 
+    /**
+     * Handles movement commands based on user input.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void moveProcess(String input, GameState gameState){
         switch (input) {
             case "w", "W":
@@ -124,6 +148,11 @@ public class App {
         }
     }
 
+    /**
+     * Handles bonus-related commands based on user input.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void bonusProcess(String input, GameState gameState){
         if(input.equals("y") || input.equals("Y")){
             System.out.println("fetch bonus");
@@ -134,6 +163,11 @@ public class App {
         }
     }
 
+    /**
+     * Handles NPC encounter commands based on user input.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void meetNPCProcess(String input, GameState gameState){
         if(input.equals("y") || input.equals("Y")){
             System.out.println("fight NPC");
@@ -145,6 +179,11 @@ public class App {
 
     }
 
+    /**
+     * Handles fighting commands based on user input.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void fightProcess(String input, GameState gameState){
         //fight choose weapon
         if(input.length() == 1){
@@ -156,6 +195,11 @@ public class App {
         }
     }
 
+    /**
+     * Handles inventory commands based on user input.
+     * @param input The user input as a string.
+     * @param gameState The current state of the game.
+     */
     private static void inventoryProcess(String input, GameState gameState){
         if(input.length()!=6 && input.length()!=5){
             return;
@@ -173,6 +217,9 @@ public class App {
         }
     }
 
+    /**
+     * Displays the winning message.
+     */
     private static void showWin(){
         System.out.println(ANSI_GREEN);
         System.out.println("*-----------**************----------*");
@@ -183,6 +230,9 @@ public class App {
         System.out.println(ANSI_RESET);
     }
 
+    /**
+     * Displays the losing message.
+     */
     private static void showLoss(){
         System.out.println(ANSI_RED);
         System.out.println("*-----------**************----------*");

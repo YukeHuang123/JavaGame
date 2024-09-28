@@ -1,13 +1,28 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine;
 
+/**
+ * Enum representing the various statuses of the game.
+ * Each status reflects a different state or phase in the game.
+ */
 public enum GameStatus {
+    /** The game is in a state where the player can move. */
     READY_MOVE,
+    /** The player is in a state where they can find a bonus. */
     FIND_BONUS,
+    /** The player has encountered a NPC. */
     MEET_NPC,
+    /** The player is currently engaged in a fight with an NPC. */
     FIGHTING,
+    /** The player has won the game. */
     WIN,
+    /** The player has lost the game. */
     LOSS;
 
+    /**
+     * Provides a string representation of the current game status.
+     * This method returns a specific message based on the game's status.
+     * @return A string message corresponding to the current game status.
+     */
     @Override
     public String toString() {
         switch (this){
