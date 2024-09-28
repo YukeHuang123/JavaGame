@@ -293,6 +293,10 @@ public class GameState implements ISerializable, IDisplayable {
             findBonus.display();
         }
 
+        // debug
+        // print current work directory
+        System.out.println(ANSI_BLUE + "Current work directory: " + System.getProperty("user.dir") + ANSI_RESET);
+
 
         entityPlayer.display();
         System.out.println(ANSI_BLUE + "   life: " + life + ANSI_RESET);
