@@ -68,6 +68,10 @@ public class GameState implements ISerializable, IDisplayable {
         return entities;
     }
 
+    public EntityPlayer getEntityPlayer() {
+        return entityPlayer;
+    }
+
     public void spawnEntity(Entity entity) {
         entities.add(entity);
     }
@@ -202,6 +206,10 @@ public class GameState implements ISerializable, IDisplayable {
 
     public GameStatus getGameStatus() {
         return gameStatus;
+    }
+
+    public GameMap getMap() {
+        return map;
     }
 
     @Override

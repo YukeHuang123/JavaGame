@@ -61,4 +61,13 @@ public class Location implements ISerializable {
     public String toString() {
         return "[" + locationX +","+ locationY +']';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Location){
+            Location otherLocation = (Location) obj;
+            return locationX == otherLocation.locationX && locationY == otherLocation.locationY;
+        }
+        return false;
+    }
 }
