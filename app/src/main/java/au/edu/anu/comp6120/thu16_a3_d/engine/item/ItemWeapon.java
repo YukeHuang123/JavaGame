@@ -1,41 +1,56 @@
 package au.edu.anu.comp6120.thu16_a3_d.engine.item;
 
 import au.edu.anu.comp6120.thu16_a3_d.data.DataManager;
-import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityType;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class Weapon extends Item{
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_BLUE;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_RESET = "\u001B[0m";
+/**
+ * Represents a weapon item in the game.
+ */
+public class ItemWeapon extends Item {
 
     int attack;
 
-
-
-    public Weapon(Location location, int attack) {
+    /**
+     * Constructs a new ItemWeapon with the specified location and attack value.
+     * @param location the location of the weapon
+     * @param attack   the attack value of the weapon
+     */
+    public ItemWeapon(Location location, int attack) {
         super(location, ItemType.WEAPON);
         this.attack = attack;
     }
 
-
-
+    /**
+     * Gets the attack value of the weapon.
+     * @return the attack value
+     */
     @Override
     public int getAttributes() {
         return attack;
     }
 
+    /**
+     * Serializes the weapon's data to a JSON string.
+     * @return a JSON representation of the weapon
+     */
     @Override
     public String serialize() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("type", type.getName());
         jsonObject.addProperty("location", location.serialize());
-        jsonObject.addProperty("attack",this.attack);
+        jsonObject.addProperty("attack", this.attack);
         return DataManager.GSON.toJson(jsonObject);
     }
 
+    /**
+     * Deserializes the weapon's data from a JSON string.
+     * @param data the JSON string containing the weapon data
+     */
     @Override
     public void deserialize(String data) {
         JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
@@ -46,9 +61,12 @@ public class Weapon extends Item{
         this.attack = jsonObject.get("attack").getAsInt();
     }
 
+    /**
+     * Displays the weapon's information in a formatted output.
+     */
     @Override
     public void display() {
-        String out = "Bonus: Weapon" + "  attack:"+ attack;
+        String out = "Bonus: Weapon" + "  attack:" + attack;
         System.out.println(ANSI_BLUE + out + ANSI_RESET);
     }
 }

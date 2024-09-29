@@ -3,25 +3,29 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 import au.edu.anu.comp6120.thu16_a3_d.engine.IDisplayable;
 import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_BLUE;
+import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
+
 /**
- * Player class is responsible for player entity
+ * EntityPlayer class represents the player entity in the game.
+ * It extends the Entity class and implements the IDisplayable interface.
  */
-public class Player extends Entity implements IDisplayable {
+public class EntityPlayer extends Entity implements IDisplayable {
 
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_RESET = "\u001B[0m";
-
+    // Maximum health for the player
     private static final int MAX_HEALTH = 100;
 
-    public Player(Location location) {
+    /**
+     * Constructs a new EntityPlayer at the specified location with the maximum health.
+     * @param location the initial location of the player
+     */
+    public EntityPlayer(Location location) {
         super(MAX_HEALTH,0, location, EntityType.PLAYER);
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
+    /**
+     * Displays the player's current health and maximum health in a formatted way.
+     */
     @Override
     public void display() {
         int health = getHealth();
@@ -45,5 +49,14 @@ public class Player extends Entity implements IDisplayable {
         }
 
         System.out.print(ANSI_BLUE + "Player--HP:" + healthString + "(" + getMaxHealth()+")" + ANSI_RESET);
+    }
+
+    /**
+     * Returns a string representation of the player, including its health and other details.
+     * @return a string representation of the player
+     */
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
