@@ -234,6 +234,11 @@ public class GameState implements ISerializable, IDisplayable {
      */
     public void fightNPC(int weaponIndex) {
         ItemWeapon itemWeapon = inventory.getWeapon(weaponIndex);
+
+        if(itemWeapon == null){
+            return;
+        }
+
         meetEntityNPC.damage(itemWeapon.getAttributes());
 
         if (meetEntityNPC.isDied()) {
