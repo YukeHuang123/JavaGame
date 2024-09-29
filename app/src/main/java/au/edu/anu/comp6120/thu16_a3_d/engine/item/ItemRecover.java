@@ -10,6 +10,7 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 
 /**
  * Represents a recovery item that restores health or other attributes.
+ * @author He Wang (u7837288)
  */
 public class ItemRecover extends Item{
 

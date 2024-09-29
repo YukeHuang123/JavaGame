@@ -2,9 +2,11 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.item;
 
 /**
  * Represents the types of items available in the game.
+ *
+ * @author He Wang (u7837288)
  */
 public enum ItemType {
-        RECOVER, WEAPON;
+    RECOVER, WEAPON;
 
     /**
      * Converts a string name to its corresponding ItemType.
@@ -20,6 +22,7 @@ public enum ItemType {
 
     /**
      * Gets the name of the item type in lowercase.
+     *
      * @return the lowercase name of the item type
      */
     public String getName() {
@@ -28,6 +31,7 @@ public enum ItemType {
 
     /**
      * Returns a string representation of the item type with the first letter capitalized.
+     *
      * @return a string representation of the item type
      */
     @Override

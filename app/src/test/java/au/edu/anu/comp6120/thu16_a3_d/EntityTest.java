@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for the Entity class in the game engine.
+ *
+ * @author He Wang (u7837228)
  */
 public class EntityTest {
 
@@ -101,9 +103,9 @@ public class EntityTest {
     }
 
     /**
-     *  Test for setting and recovering the pre-fight health.
-     *  Ensures that the health is restored to the pre-fight value after recovering.
-     *  for resurrect, enemy and player recover to pre Attack state
+     * Test for setting and recovering the pre-fight health.
+     * Ensures that the health is restored to the pre-fight value after recovering.
+     * for resurrect, enemy and player recover to pre Attack state
      */
     @Test
     void testSetPreFightHealthAndRecover() {
