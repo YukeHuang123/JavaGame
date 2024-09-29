@@ -5,6 +5,7 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 
 /**
  * Represents a wall grid in the game, which is a solid obstacle.
+ * @author Shun Liu (u7797828)
  */
 public class WallGrid implements Grid{
 

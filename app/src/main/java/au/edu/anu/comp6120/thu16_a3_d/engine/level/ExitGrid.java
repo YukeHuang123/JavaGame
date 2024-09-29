@@ -6,8 +6,10 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 /**
  * Represents an exit grid in the game.
  * The exit grid is a solid grid that indicates the exit point in the game.
+ *
+ * @author He Wang (u7837288)
  */
-public class ExitGrid implements Grid{
+public class ExitGrid implements Grid {
     /**
      * Checks if the exit grid is solid.
      *

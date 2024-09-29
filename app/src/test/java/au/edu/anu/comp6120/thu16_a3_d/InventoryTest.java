@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
  * Test class for the Inventory class in the game engine.
  * It validates the functionality of the Inventory class including
  * adding, removing weapons and recovers, and serialization/deserialization.
+ *
+ * @author He Wang (u7837228)
  */
 public class InventoryTest {
     private Inventory inventory;

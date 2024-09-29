@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
  * Entity class is the base class for all entities in the game.
  * It provides properties and methods to manage an entity's state,
  * such as health, attack, and location.
+ * @author Shun Liu (u7797828)
  */
 public class Entity implements ISerializable {
 

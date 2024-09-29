@@ -3,6 +3,7 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.level;
 /**
  * Represents an empty grid cell in the game.
  * The EmptyGrid is non-solid, indicating that it can be passed through.
+ * @author Shun Liu (u7797828)
  */
 public class EmptyGrid implements Grid{
 

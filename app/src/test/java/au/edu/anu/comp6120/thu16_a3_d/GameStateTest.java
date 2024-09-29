@@ -14,13 +14,13 @@ import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.print.DocFlavor;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
  * This class contains unit tests for the GameState in the game.
+ *
+ * @author He Wang (u7837228)
  */
 public class GameStateTest {
 
@@ -82,9 +82,9 @@ public class GameStateTest {
     public void testWin() {
         assertEquals(GameStatus.READY_MOVE, gameState.getGameStatus(), "beginning should be Ready move");
         GameMap gameMap = gameState.getMap();
-        gameMap.setGrid(1,0,new ExitGrid());
+        gameMap.setGrid(1, 0, new ExitGrid());
 
-        gameState.movePlayer(1,0);
+        gameState.movePlayer(1, 0);
 
         assertEquals(GameStatus.WIN, gameState.getGameStatus(), "win when go to the exit");
         gameState.movePlayer(1, 0);
@@ -101,15 +101,15 @@ public class GameStateTest {
         //only one life
         gameState.setLife(1);
 
-        EntityNPC entityNPC = new EntityNPC(100,100,new Location(1,0));
-        gameMap.setGrid(1,0,new EntityGrid(entityNPC));
+        EntityNPC entityNPC = new EntityNPC(100, 100, new Location(1, 0));
+        gameMap.setGrid(1, 0, new EntityGrid(entityNPC));
 
         //add a weapon that cannot kill the NPC, player will die
         gameState.getInventory().removeWeapon(1);
-        gameState.getInventory().addWeapon(new ItemWeapon(new Location(),10));
+        gameState.getInventory().addWeapon(new ItemWeapon(new Location(), 10));
 
         //fight NPC
-        gameState.movePlayer(1,0);
+        gameState.movePlayer(1, 0);
         assertEquals(GameStatus.MEET_NPC, gameState.getGameStatus(), "should meet NPC");
         gameState.chooseToFightNPC();
         gameState.fightNPC(1);
@@ -127,11 +127,11 @@ public class GameStateTest {
         assertEquals(GameStatus.READY_MOVE, gameState.getGameStatus(), "beginning should be Ready move");
         GameMap gameMap = gameState.getMap();
 
-        ItemWeapon weapon = new ItemWeapon(new Location(1,0),10);
-        gameMap.setGrid(1,0,new ItemGrid(weapon));
+        ItemWeapon weapon = new ItemWeapon(new Location(1, 0), 10);
+        gameMap.setGrid(1, 0, new ItemGrid(weapon));
 
-        ItemRecover itemRecover = new ItemRecover(new Location(2,0),30);
-        gameMap.setGrid(2,0,new ItemGrid(itemRecover));
+        ItemRecover itemRecover = new ItemRecover(new Location(2, 0), 30);
+        gameMap.setGrid(2, 0, new ItemGrid(itemRecover));
 
         //begin to move
         gameState.movePlayer(1, 0);

@@ -9,6 +9,7 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 /**
  * EntityPlayer class represents the player entity in the game.
  * It extends the Entity class and implements the IDisplayable interface.
+ * @author Shun Liu (u7797828)
  */
 public class EntityPlayer extends Entity implements IDisplayable {
 
@@ -25,6 +26,7 @@ public class EntityPlayer extends Entity implements IDisplayable {
 
     /**
      * Displays the player's current health and maximum health in a formatted way.
+     * @author He Wang (u7837288)
      */
     @Override
     public void display() {

@@ -15,11 +15,14 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
 
 /**
  * entrance of the program
+ *
+ * @author Shun Liu (u7797828)
  */
 public class App {
 
     /**
      * Returns a greeting message.
+     *
      * @return A string greeting message.
      */
     public String getGreeting() {
@@ -36,8 +39,10 @@ public class App {
 
     /**
      * The main entry point for the application.
+     *
      * @param args Command line arguments.
      * @throws IOException If there is an error loading or saving the game state.
+     * @author He Wang (u7837288)
      */
     public static void main(String[] args) throws IOException {
         GameState gameState = (DataManager.READ_CONFIG_FROM_FILE) ? (DataManager.getInstance().load()) : new GameState();
@@ -62,13 +67,13 @@ public class App {
 
             processInput(input, gameState);
 
-            if(gameState.getGameStatus() == GameStatus.LOSS) {
+            if (gameState.getGameStatus() == GameStatus.LOSS) {
                 System.out.println(ANSI_RED + "You lost!" + ANSI_RESET);
                 gameState.display();
                 showLoss();
                 break;
             }
-            if(gameState.getGameStatus() == GameStatus.WIN) {
+            if (gameState.getGameStatus() == GameStatus.WIN) {
                 System.out.println(ANSI_GREEN + "You win!" + ANSI_RESET);
                 gameState.display();
                 showWin();
@@ -79,6 +84,8 @@ public class App {
 
     /**
      * Displays the game instructions.
+     *
+     * @author He Wang (u7837288)
      */
     private static void displayInstructions() {
         String message = " Use W/A/S/D to move, Q to quit ";
@@ -104,7 +111,8 @@ public class App {
 
     /**
      * Processes user input based on the current game state.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
      */
     private static void processInput(String input, GameState gameState) {
@@ -113,7 +121,7 @@ public class App {
         switch (gameStateType) {
             case READY_MOVE -> moveProcess(input, gameState);
             case FIND_BONUS -> bonusProcess(input, gameState);
-            case MEET_NPC ->  meetNPCProcess(input, gameState);
+            case MEET_NPC -> meetNPCProcess(input, gameState);
             case FIGHTING -> fightProcess(input, gameState);
         }
 
@@ -122,10 +130,12 @@ public class App {
 
     /**
      * Handles movement commands based on user input.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
+     * @author He Wang (u7837288)
      */
-    private static void moveProcess(String input, GameState gameState){
+    private static void moveProcess(String input, GameState gameState) {
         switch (input) {
             case "w", "W":
                 System.out.println("Moving up");
@@ -150,14 +160,16 @@ public class App {
 
     /**
      * Handles bonus-related commands based on user input.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
+     * @author He Wang (u7837288)
      */
-    private static void bonusProcess(String input, GameState gameState){
-        if(input.equals("y") || input.equals("Y")){
+    private static void bonusProcess(String input, GameState gameState) {
+        if (input.equals("y") || input.equals("Y")) {
             System.out.println("fetch bonus");
             gameState.fetchBonus();
-        } else if(input.equals("n") || input.equals("N")){
+        } else if (input.equals("n") || input.equals("N")) {
             System.out.println("drop bonus");
             gameState.dropBonus();
         }
@@ -165,14 +177,16 @@ public class App {
 
     /**
      * Handles NPC encounter commands based on user input.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
+     * @author He Wang (u7837288)
      */
-    private static void meetNPCProcess(String input, GameState gameState){
-        if(input.equals("y") || input.equals("Y")){
+    private static void meetNPCProcess(String input, GameState gameState) {
+        if (input.equals("y") || input.equals("Y")) {
             System.out.println("fight NPC");
             gameState.chooseToFightNPC();
-        } else if(input.equals("n") || input.equals("N")){
+        } else if (input.equals("n") || input.equals("N")) {
             System.out.println("run away");
             gameState.chooseToRunAwayNPC();
         }
@@ -181,13 +195,15 @@ public class App {
 
     /**
      * Handles fighting commands based on user input.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
+     * @author He Wang (u7837288)
      */
-    private static void fightProcess(String input, GameState gameState){
+    private static void fightProcess(String input, GameState gameState) {
         //fight choose weapon
-        if(input.length() == 1){
-            if(!Character.isDigit(input.charAt(0))){
+        if (input.length() == 1) {
+            if (!Character.isDigit(input.charAt(0))) {
                 return;
             }
             int weaponIndex = Character.getNumericValue(input.charAt(0));
@@ -197,21 +213,23 @@ public class App {
 
     /**
      * Handles inventory commands based on user input.
-     * @param input The user input as a string.
+     *
+     * @param input     The user input as a string.
      * @param gameState The current state of the game.
+     * @author He Wang (u7837288)
      */
-    private static void inventoryProcess(String input, GameState gameState){
-        if(input.length()!=6 && input.length()!=5){
+    private static void inventoryProcess(String input, GameState gameState) {
+        if (input.length() != 6 && input.length() != 5) {
             return;
         }
 
-        if(input.substring(0,4).equalsIgnoreCase("rm w")){
-            int index  = input.charAt(5) - '0';
-            gameState.removeInventory(ItemType.WEAPON,index);
-        } else if (input.substring(0,4).equalsIgnoreCase("rm r")) {
-            int index  = input.charAt(5) - '0';
-            gameState.removeInventory(ItemType.RECOVER,index);
-        } else if (input.substring(0,3).equalsIgnoreCase("use")) {
+        if (input.substring(0, 4).equalsIgnoreCase("rm w")) {
+            int index = input.charAt(5) - '0';
+            gameState.removeInventory(ItemType.WEAPON, index);
+        } else if (input.substring(0, 4).equalsIgnoreCase("rm r")) {
+            int index = input.charAt(5) - '0';
+            gameState.removeInventory(ItemType.RECOVER, index);
+        } else if (input.substring(0, 3).equalsIgnoreCase("use")) {
             int index = input.charAt(4) - '0';
             gameState.userRecover(index);
         }
@@ -219,8 +237,10 @@ public class App {
 
     /**
      * Displays the winning message.
+     *
+     * @author He Wang (u7837288)
      */
-    private static void showWin(){
+    private static void showWin() {
         System.out.println(ANSI_GREEN);
         System.out.println("*-----------**************----------*");
         System.out.println("|\\                                 /|");
@@ -232,8 +252,10 @@ public class App {
 
     /**
      * Displays the losing message.
+     *
+     * @author He Wang (u7837288)
      */
-    private static void showLoss(){
+    private static void showLoss() {
         System.out.println(ANSI_RED);
         System.out.println("*-----------**************----------*");
         System.out.println("|                                   |");

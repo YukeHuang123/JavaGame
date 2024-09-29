@@ -4,10 +4,18 @@
 package au.edu.anu.comp6120.thu16_a3_d;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class AppTest {
-    @Test void appHasAGreeting() {
+
+    /**
+     * This is a test method that checks if the app has a greeting.
+     *
+     * @author Shun Liu (u7797828)
+     */
+    @Test
+    void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
