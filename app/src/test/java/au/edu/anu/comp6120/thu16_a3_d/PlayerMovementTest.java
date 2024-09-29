@@ -1,6 +1,5 @@
 package au.edu.anu.comp6120.thu16_a3_d;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import au.edu.anu.comp6120.thu16_a3_d.engine.GameState;
 import au.edu.anu.comp6120.thu16_a3_d.engine.entity.EntityPlayer;
 import au.edu.anu.comp6120.thu16_a3_d.engine.level.GameMap;
@@ -8,13 +7,17 @@ import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * This class contains unit tests for player movement in the game. It tests various movement directions
  * (up, down, left, right) as well as invalid movement inputs. The tests simulate player movement and
  * verify if the player's position updates correctly based on the input.
+ *
+ * @author He Wang (u7837228)
  */
 public class PlayerMovementTest {
-     private GameState gameState;
+    private GameState gameState;
 
     static int locationX = 7;
     static int locationY = 2;
@@ -36,17 +39,17 @@ public class PlayerMovementTest {
 
         //set entity 4 direction be the empty grid
         GameMap gameMap = gameState.getMap();
-        gameMap.setGridEmpty(locationX-1,locationY);
-        gameMap.setGridEmpty(locationX+1,locationY);
-        gameMap.setGridEmpty(locationX,locationY-1);
-        gameMap.setGridEmpty(locationX,locationY+1);
+        gameMap.setGridEmpty(locationX - 1, locationY);
+        gameMap.setGridEmpty(locationX + 1, locationY);
+        gameMap.setGridEmpty(locationX, locationY - 1);
+        gameMap.setGridEmpty(locationX, locationY + 1);
     }
 
 
     /**
      * Simulates the player movement based on the input and updates the player's location in the game.
      *
-     * @param input The input representing the direction of movement ("W", "A", "S", "D")
+     * @param input     The input representing the direction of movement ("W", "A", "S", "D")
      * @param gameState The current game state
      */
     private static void moveProcess(String input, GameState gameState) {
@@ -148,7 +151,7 @@ public class PlayerMovementTest {
         Location initialLocation = player.getLocation();
 
         // Simulate invalid key press
-        moveProcess("X",gameState); // Invalid input should not change position
+        moveProcess("X", gameState); // Invalid input should not change position
 
         // Verify the player's location hasn't changed
         Location newLocation = gameState.getEntityPlayer().getLocation();

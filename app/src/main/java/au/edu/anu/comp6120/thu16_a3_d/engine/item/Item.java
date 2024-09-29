@@ -7,6 +7,7 @@ import au.edu.anu.comp6120.thu16_a3_d.utils.Location;
 /**
  * Represents an abstract item that can be either a weapon or a recovery item.
  * This class implements serialization and display functionalities.
+ * @author He Wang (u7837288)
  */
 public abstract class Item implements ISerializable, IDisplayable {
     ItemType type;

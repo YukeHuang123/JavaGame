@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
  * Unit tests for the Item class and its subclasses.
  * This class contains tests for serialization and deserialization
  * of ItemWeapon and ItemRecover objects.
+ *
+ * @author He Wang (u7837228)
  */
 public class ItemTest {
     /**
@@ -26,9 +28,9 @@ public class ItemTest {
         String json = itemWeapon.serialize();
         System.out.println(json);
         Assertions.assertNotNull(json);
-        Assertions.assertEquals(true, json.contains("\"type\": \"weapon\""));
-        Assertions.assertEquals(true, json.contains("\"location\":"));
-        Assertions.assertEquals(true, json.contains("\"attack\": 40"));
+        Assertions.assertTrue(json.contains("\"type\": \"weapon\""));
+        Assertions.assertTrue(json.contains("\"location\":"));
+        Assertions.assertTrue(json.contains("\"attack\": 40"));
 
 
         //test for Recover
@@ -36,9 +38,9 @@ public class ItemTest {
         json = itemREcover.serialize();
 
         Assertions.assertNotNull(json);
-        Assertions.assertEquals(true, json.contains("\"type\": \"recover\""));
-        Assertions.assertEquals(true, json.contains("\"location\":"));
-        Assertions.assertEquals(true, json.contains("\"recover\": 50"));
+        Assertions.assertTrue(json.contains("\"type\": \"recover\""));
+        Assertions.assertTrue(json.contains("\"location\":"));
+        Assertions.assertTrue(json.contains("\"recover\": 50"));
     }
 
     /**

@@ -18,6 +18,8 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_YELLOW;
 /**
  * Represents the game map, which consists of a grid of cells.
  * The map can be generated randomly or loaded from a configuration.
+ *
+ * @author Shun Liu (u7797828)
  */
 public class GameMap implements ISerializable, IDisplayable {
 
@@ -27,7 +29,7 @@ public class GameMap implements ISerializable, IDisplayable {
     private static final int HEIGHT = 12;
 
     // 2D array representing the grid of the
-    private Grid[][] grids;
+    private final Grid[][] grids;
     // Location of the exit on the map
     private Location exitLocation;
     // Starting location of the playe
@@ -39,7 +41,7 @@ public class GameMap implements ISerializable, IDisplayable {
     public GameMap() {
         this.grids = new Grid[WIDTH][HEIGHT];
 
-        if(!DataManager.READ_CONFIG_FROM_FILE){
+        if (!DataManager.READ_CONFIG_FROM_FILE) {
             generate();
         }
     }
@@ -66,12 +68,13 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Recursively generates the maze using a randomized depth-first search algorithm.
+     *
      * @param x The x-coordinate of the current cell.
      * @param y The y-coordinate of the current cell.
      */
     private void generateMaze(int x, int y) {
         // Set start location if it hasn't been set yet
-        if(!startLocation.validLocation()){
+        if (!startLocation.validLocation()) {
             startLocation.setLocationX(x);
             startLocation.setLocationY(y);
         }
@@ -102,7 +105,7 @@ public class GameMap implements ISerializable, IDisplayable {
         }
 
         // Set exit location if it hasn't been set yet
-        if(!exitLocation.validLocation()){
+        if (!exitLocation.validLocation()) {
             exitLocation.setLocationX(x);
             exitLocation.setLocationY(y);
             grids[x][y] = new ExitGrid();
@@ -111,9 +114,10 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Places the specified entities on the map.
+     *
      * @param entities The list of entities to place.
      */
-    public void putOnEntities(List<Entity> entities){
+    public void putOnEntities(List<Entity> entities) {
         for (Entity entity : entities) {
             Location location = entity.getLocation();
             int X = location.getLocationX();
@@ -125,9 +129,10 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Places the specified items on the map.
+     *
      * @param items The list of items to place.
      */
-    public void putOnItems(List<Item> items){
+    public void putOnItems(List<Item> items) {
         for (Item item : items) {
             Location location = item.getLocation();
             int X = location.getLocationX();
@@ -139,69 +144,71 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Checks if the specified coordinates are within the bounds of the map.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return true if the coordinates are within bounds; false otherwise.
      */
-    public boolean isInBounds(int x, int y){
+    public boolean isInBounds(int x, int y) {
         return x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
     }
 
     /**
      * Checks if the target position is valid for movement.
+     *
      * @param x The x-coordinate of the target position.
      * @param y The y-coordinate of the target position.
      * @return true if the position can be moved to; false otherwise.
      */
-    public boolean isTargetPositionCanMove(int x, int y){
-        if(!isInBounds(x ,y)){
+    public boolean isTargetPositionCanMove(int x, int y) {
+        if (!isInBounds(x, y)) {
             return false;
         }
-        if(grids[x][y] instanceof WallGrid){
-            return false;
-        }
-
-        return true;
+        return !(grids[x][y] instanceof WallGrid);
     }
 
     /**
      * Checks if the specified coordinates contain the exit.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return true if the coordinates are the exit; false otherwise.
      */
-    public boolean isExit(int x, int y){
+    public boolean isExit(int x, int y) {
         return grids[x][y] instanceof ExitGrid;
     }
 
     /**
      * Checks if the specified coordinates contain an enemy entity.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return true if the coordinates contain an enemy; false otherwise.
      */
-    public boolean isEnemy(int x, int y){
+    public boolean isEnemy(int x, int y) {
         return grids[x][y] instanceof EntityGrid;
     }
 
     /**
      * Checks if the specified coordinates contain a bonus item.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return true if the coordinates contain a bonus; false otherwise.
      */
-    public boolean isBonus(int x, int y){
+    public boolean isBonus(int x, int y) {
         return grids[x][y] instanceof ItemGrid;
     }
 
     /**
      * Retrieves the entity at the specified coordinates.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return The entity at the specified coordinates, or null if there is none.
      */
-    public Entity getEntity(int x, int y){
-        if(grids[x][y] instanceof EntityGrid){
+    public Entity getEntity(int x, int y) {
+        if (grids[x][y] instanceof EntityGrid) {
             return ((EntityGrid) grids[x][y]).getEntity();
         }
         return null;
@@ -209,12 +216,13 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Retrieves the bonus item at the specified coordinates.
+     *
      * @param x The x-coordinate to check.
      * @param y The y-coordinate to check.
      * @return The bonus item at the specified coordinates, or null if there is none.
      */
-    public Item getBonus(int x, int y){
-        if(grids[x][y] instanceof ItemGrid){
+    public Item getBonus(int x, int y) {
+        if (grids[x][y] instanceof ItemGrid) {
             return ((ItemGrid) grids[x][y]).getItem();
         }
         return null;
@@ -222,13 +230,14 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Exchanges the grids at two specified coordinates.
-     * @param firstX The x-coordinate of the first grid.
-     * @param firstY The y-coordinate of the first grid.
+     *
+     * @param firstX  The x-coordinate of the first grid.
+     * @param firstY  The y-coordinate of the first grid.
      * @param secondX The x-coordinate of the second grid.
      * @param secondY The y-coordinate of the second grid.
      */
-    public void exchangeGrid(int firstX, int firstY, int secondX, int secondY){
-        if(!isInBounds(firstX, firstY) || !isInBounds(secondX, secondY)){
+    public void exchangeGrid(int firstX, int firstY, int secondX, int secondY) {
+        if (!isInBounds(firstX, firstY) || !isInBounds(secondX, secondY)) {
             return;
         }
 
@@ -239,11 +248,12 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Sets the specified grid to an empty grid.
+     *
      * @param X The x-coordinate of the grid to clear.
      * @param Y The y-coordinate of the grid to clear.
      */
-    public void setGridEmpty(int X, int Y){
-        if(!isInBounds(X,Y)){
+    public void setGridEmpty(int X, int Y) {
+        if (!isInBounds(X, Y)) {
             return;
         }
         grids[X][Y] = new EmptyGrid();
@@ -252,21 +262,24 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Sets the specified grid.
-     * @param X The x-coordinate of the grid to clear.
-     * @param Y The y-coordinate of the grid to clear.
+     *
+     * @param X    The x-coordinate of the grid to clear.
+     * @param Y    The y-coordinate of the grid to clear.
      * @param grid the set grid
      */
-    public void setGrid(int X, int Y, Grid grid){
-        if(!isInBounds(X,Y)){
+    public void setGrid(int X, int Y, Grid grid) {
+        if (!isInBounds(X, Y)) {
             return;
         }
-        if(grid == null){
+        if (grid == null) {
             return;
         }
         grids[X][Y] = grid;
     }
+
     /**
      * Serializes the game grid into a JSON string format.
+     *
      * @return A JSON string representation of the game grid, including the start and exit locations.
      */
     @Override
@@ -284,7 +297,7 @@ public class GameMap implements ISerializable, IDisplayable {
                 JsonObject gridObject = new JsonObject();
 
                 //entity and item will not save in the map--data from other source
-                if(grids[x][y] instanceof EntityGrid || grids[x][y] instanceof ItemGrid || grids[x][y] instanceof ExitGrid){
+                if (grids[x][y] instanceof EntityGrid || grids[x][y] instanceof ItemGrid || grids[x][y] instanceof ExitGrid) {
                     gridObject.addProperty("type", EmptyGrid.class.getSimpleName());
                 } else {
                     gridObject.addProperty("type", grids[x][y].getClass().getSimpleName());
@@ -318,7 +331,7 @@ public class GameMap implements ISerializable, IDisplayable {
             for (int y = 0; y < HEIGHT; y++) {
                 JsonObject gridObject = column.get(y).getAsJsonObject();
                 String gridType = gridObject.get("type").getAsString();
-                
+
                 switch (gridType) {
                     case "EmptyGrid":
                         grids[x][y] = new EmptyGrid();
@@ -327,14 +340,14 @@ public class GameMap implements ISerializable, IDisplayable {
                         grids[x][y] = new WallGrid();
                         break;
 
-                        //first for empty grid
+                    //first for empty grid
                     case "OutGrid":
                     case "EntityGrid":
                     case "ItemGrid":
                         grids[x][y] = new EmptyGrid();
                         continue;
 
-                    // other grid will use entity or item to put on the map
+                        // other grid will use entity or item to put on the map
                     default:
                         throw new IllegalArgumentException("Unknown grid type: " + gridType);
                 }
@@ -394,6 +407,7 @@ public class GameMap implements ISerializable, IDisplayable {
 
     /**
      * Returns a string representation of the game grid, including start and exit locations.
+     *
      * @return A string representation of the game grid.
      */
     @Override

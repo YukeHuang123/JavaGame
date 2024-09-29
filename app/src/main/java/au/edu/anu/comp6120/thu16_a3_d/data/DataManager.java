@@ -13,6 +13,7 @@ import java.io.IOException;
 
 /**
  * DataManager class is responsible for saving and loading game state data
+ * @author Shun Liu (u7797828)
  */
 public class DataManager {
 

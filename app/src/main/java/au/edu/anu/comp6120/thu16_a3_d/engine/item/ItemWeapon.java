@@ -10,6 +10,8 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 
 /**
  * Represents a weapon item in the game.
+ *
+ * @author He Wang (u7837288)
  */
 public class ItemWeapon extends Item {
 
@@ -17,6 +19,7 @@ public class ItemWeapon extends Item {
 
     /**
      * Constructs a new ItemWeapon with the specified location and attack value.
+     *
      * @param location the location of the weapon
      * @param attack   the attack value of the weapon
      */
@@ -27,6 +30,7 @@ public class ItemWeapon extends Item {
 
     /**
      * Gets the attack value of the weapon.
+     *
      * @return the attack value
      */
     @Override
@@ -36,6 +40,7 @@ public class ItemWeapon extends Item {
 
     /**
      * Serializes the weapon's data to a JSON string.
+     *
      * @return a JSON representation of the weapon
      */
     @Override
@@ -49,6 +54,7 @@ public class ItemWeapon extends Item {
 
     /**
      * Deserializes the weapon's data from a JSON string.
+     *
      * @param data the JSON string containing the weapon data
      */
     @Override

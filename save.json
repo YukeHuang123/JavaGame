@@ -1,5 +1,5 @@
 {
-  "life": 3,
+  "life": 10,
   "entities": [
     {
       "type": "enemy",
@@ -73,7 +73,7 @@
     },
     {
       "type": "enemy",
-      "location": "{\n  \"locationX\": 4,\n  \"locationY\":1\n}",
+      "location": "{\n  \"locationX\": 4,\n  \"locationY\": 1\n}",
       "health": 30,
       "max_health": 100,
       "attack": 10
@@ -81,7 +81,7 @@
     {
       "type": "enemy",
       "location": "{\n  \"locationX\": 0,\n  \"locationY\": 7\n}",
-      "health": 30,
+      "health": 0,
       "max_health": 100,
       "attack": 25
     },
@@ -108,7 +108,7 @@
     },
     {
       "type": "player",
-      "location": "{\n  \"locationX\": 0,\n  \"locationY\": 10\n}",
+      "location": "{\n  \"locationX\": 0,\n  \"locationY\": 8\n}",
       "health": 100,
       "max_health": 100,
       "attack": 0

@@ -3,6 +3,7 @@ package au.edu.anu.comp6120.thu16_a3_d.engine.entity;
 /**
  * Enum representing different types of entities in the game.
  * The possible entity types are PLAYER, ENEMY, and NONE.
+ * @author Shun Liu (u7797828)
  */
 public enum EntityType {
     PLAYER,

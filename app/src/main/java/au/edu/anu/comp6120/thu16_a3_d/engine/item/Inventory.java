@@ -18,6 +18,7 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.*;
  * Represents an inventory that can hold weapons and recovery items.
  * The inventory has a maximum capacity for weapons and recovery items,
  * and provides methods to add, remove, and display these items.
+ * @author He Wang (u7837288)
  */
 public class Inventory implements ISerializable,IDisplayable {
 

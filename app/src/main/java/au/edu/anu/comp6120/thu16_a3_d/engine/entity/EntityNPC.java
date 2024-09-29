@@ -9,6 +9,7 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_RESET;
 /**
  * EntityNPC class represents a non-playable character (NPC) in the game.
  * It extends the Entity class and implements the IDisplayable interface.
+ * @author He Wang (u7837288)
  */
 public class EntityNPC extends Entity implements IDisplayable {
 

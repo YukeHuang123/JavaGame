@@ -14,6 +14,8 @@ import static au.edu.anu.comp6120.thu16_a3_d.utils.ANSIColors.ANSI_YELLOW;
 /**
  * Represents a grid cell that contains an entity in the game.
  * The EntityGrid is solid and can hold entities like players and enemies.
+ *
+ * @author Shun Liu (u7797828)
  */
 public class EntityGrid implements Grid {
 
@@ -21,6 +23,7 @@ public class EntityGrid implements Grid {
 
     /**
      * Constructs an EntityGrid with the specified entity.
+     *
      * @param entity The entity to be placed in this grid.
      */
     public EntityGrid(Entity entity) {
@@ -29,6 +32,7 @@ public class EntityGrid implements Grid {
 
     /**
      * Returns the entity contained in this grid.
+     *
      * @return The entity present in this EntityGrid.
      */
     public Entity getEntity() {
@@ -37,6 +41,7 @@ public class EntityGrid implements Grid {
 
     /**
      * Checks if the entity grid is solid.
+     *
      * @return true, indicating that the entity grid is solid and cannot be passed through.
      */
     @Override
@@ -46,6 +51,7 @@ public class EntityGrid implements Grid {
 
     /**
      * Serializes the entity grid to a JSON string representation.
+     *
      * @return A JSON string representing the entity and its type.
      */
     @Override
@@ -58,11 +64,13 @@ public class EntityGrid implements Grid {
 
     /**
      * Deserializes the given JSON string into the entity grid.
+     *
      * @param data The JSON string representation of the entity grid.
      */
     @Override
     public void deserialize(String data) {
-        Map<String, String> map = DataManager.GSON.fromJson(data, new TypeToken<Map<String, String>>(){}.getType());
+        Map<String, String> map = DataManager.GSON.fromJson(data, new TypeToken<Map<String, String>>() {
+        }.getType());
         entity.deserialize(map.get("entity"));
     }
 
@@ -73,7 +81,7 @@ public class EntityGrid implements Grid {
     @Override
     public void display() {
 
-        if(entity.getType() == EntityType.ENEMY) {
+        if (entity.getType() == EntityType.ENEMY) {
             System.out.print(ANSI_YELLOW);
         }
         System.out.print(entity.getType().getDisplayName());
@@ -91,10 +99,16 @@ public class EntityGrid implements Grid {
     @Override
     public String toString() {
         EntityType type = entity.getType();
-        switch(type){
-            case ENEMY -> {return "E";}
-            case PLAYER -> {return "P";}
-            default -> {return " ";}
+        switch (type) {
+            case ENEMY -> {
+                return "E";
+            }
+            case PLAYER -> {
+                return "P";
+            }
+            default -> {
+                return " ";
+            }
         }
     }
 }
